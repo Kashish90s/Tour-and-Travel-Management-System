@@ -74,6 +74,7 @@ function hideLogoutConfirmation() {
 
 function logout() {
   // Perform logout action here
+//   window.location.replace('/logout');
   console.log("Logout successful.");
   hideLogoutConfirmation();
 }

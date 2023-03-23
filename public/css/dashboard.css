@@ -126,8 +126,10 @@ header .icons i:hover {
 .icons i:hover {
   color: var(--orange);
 }
+
 .dropdown {
   position: relative;
+
   /* display: inline-block; */
 }
 

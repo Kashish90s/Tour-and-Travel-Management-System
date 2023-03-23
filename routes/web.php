@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user_controller;
 use App\Http\Controllers\admin_controller;
+use App\Http\Controllers\login_controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,15 +16,11 @@ use App\Http\Controllers\admin_controller;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/loginn ',function(){
-    return view('login');
-});
 
-Route::get('/dashboard ',function(){
+
+
+Route::get('/ ',function(){
     return view('dashboard');
 });
 
@@ -35,18 +32,14 @@ Route::get('/dashboard ',function(){
 Route::view('/signupp','signup')->name('signup');
 
 
-Route::controller(user_controller::class)->group(function () {
+Route::controller(login_controller::class)->group(function () {
     Route::post('user', 'userlogin');
-    Route::post('adduser', 'userSignup');
-
+    Route::get('logout','userlogout');
 });
 
-
-Route::controller(admin_controller::class)->group(function () {
-    Route::post('admin', 'adminlogin');
-
+Route::controller(user_controller::class)->group(function () {
+    Route::post('userSignUp', 'userSignup');
 });
-Route::view('/admin','adminlogin')->name('adminlogin');
 
 
 

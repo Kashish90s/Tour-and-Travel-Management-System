@@ -1,3 +1,4 @@
+@routes
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +14,7 @@
 
     <!-- custom css file link -->
 
-    <link rel="stylesheet" href="{{asset('dash/dashboard.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/dashboard.css')}}" />
   </head>
   <body>
     <!-- header section starts -->
@@ -33,37 +34,48 @@
 
       <div class="icons">
         <i class="fas fa-search" id="search-btn"></i>
-        <i class="fas fa-user" id="login-btn"></i>
 
+        @if (!session()->has('userType'))
+        <i class="fas fa-user" id="login-btn"></i>
+        @endif
+
+        @if (session()->has('userType'))
         <div class="dropdown">
           <i class="fas fa-cog" id="setting-btn"></i>
           <div id="setting-menu" class="dropdown-menu">
             <!-- <a href="#">Profile </a> -->
-            @if(session('userType')=='admin')
+
+            @if(session('userType')=='user')
             <a href="#" onclick="goToProfileSettings()">Profile</a>
             @endif
             <a href="#">Notification </a>
-
+            @if(session('userType')=='admin')
             <a href="#">Admin Dashboard </a>
-            <a href="#" onclick="showLogoutConfirmation()">Logout</a>
+            @endif
+
+
+            <a onclick="showLogoutConfirmation()">Logout</a>
           </div>
         </div>
+        @endif
 
         <div id="logout-confirmation" class="dialog-box">
           <p>Are you sure you want to logout?</p>
 
           <div class="button-container">
-            <button class="btn-confirm" onclick="logout()">Yes</button>
+            <a class="btn-confirm" href="{{route('logout')}}">Yes</a>
             <button class="btn-cancel" onclick="hideLogoutConfirmation()">
               Cancel
             </button>
           </div>
         </div>
       </div>
+
       <form action="" class="search-bar-container">
         <input type="search" id="search-bar" placeholder="search here..." />
         <label for="search-bar" class="fas fa-search"></label>
       </form>
+
     </header>
     <!-- header section ends -->
 
@@ -72,14 +84,14 @@
     <div class="login-form-container">
       <i class="fas fa-times" id="form-close"></i>
 
-      <form action="user" method="POST" >
-
+      <form action="user" method="POST"  class="main_form">
+        @csrf
         <h3>login</h3>
 
-        <input type="email" class="box" placeholder="enter your email" />
+        <input type="email" name="email" class="box" placeholder="enter your email" />
 
-        <input type="password" class="box" placeholder="enter your password" />
-
+        <input type="password" name="password" class="box" placeholder="enter your password" />
+        <span class="error-text"> </span>
         <input type="submit" value="login now" class="btn" />
 
         <input type="checkbox" id="remember" />
@@ -88,7 +100,7 @@
 
         <p>forgot password? <a href="#">click here</a></p>
 
-        <p>don't have an account? <a href="#">Register now</a></p>
+        <p>don't have an account? <a href="{{route('signup')}}">Register now</a></p>
       </form>
     </div>
 
@@ -104,16 +116,16 @@
       </div>
 
       <div class="controls">
-        <span class="vid-btn active" data-src="{{asset('dash/images/vid-1.mp4')}}"> </span>
-        <span class="vid-btn" data-src="{{asset('dash/images/vid-2.mp4')}}"> </span>
+        <span class="vid-btn active" data-src="{{asset('images/vid-1.mp4')}}"> </span>
+        <span class="vid-btn" data-src="{{asset('images/vid-2.mp4')}}"> </span>
         <span class="vid-btn" data-src="{{asset('images/vid-3.mp4')}}"> </span>
-        <span class="vid-btn" data-src="images/vid-4.mp4"> </span>
-        <span class="vid-btn" data-src="images/vid-5.mp4"> </span>
+        <span class="vid-btn" data-src="{{asset('images/vid-4.mp4')}}"> </span>
+        <span class="vid-btn" data-src="{{asset('images/vid-5.mp4')}}"> </span>
       </div>
 
       <div class="video-container">
         <video
-          src="{{asset('dash/images/vid-1.mp4')}}"
+          src="{{asset('images/vid-1.mp4')}}"
           id="video-slider"
           loop
           autoplay
@@ -186,7 +198,7 @@
 
       <div class="box-container">
         <div class="box">
-          <img src="{{asset('dash/images/p-1.jpg')}}" alt="" />
+          <img src="{{asset('images/p-1.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -203,7 +215,7 @@
         </div>
 
         <div class="box">
-          <img src="{{asset('dash/images/p-2.jpg')}}" alt="" />
+          <img src="{{asset('images/p-2.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -220,7 +232,7 @@
         </div>
 
         <div class="box">
-          <img src="{{asset('dash/images/p-3.jpg')}}" alt="" />
+          <img src="{{asset('images/p-3.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -237,7 +249,7 @@
         </div>
 
         <div class="box">
-          <img src="{{asset('dash/images/p-4.jpg')}}" alt="" />
+          <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -254,7 +266,7 @@
         </div>
 
         <div class="box">
-          <img src="{{asset('dash/images/p-4.jpg')}}" alt="" />
+          <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -271,7 +283,7 @@
         </div>
 
         <div class="box">
-          <img src="{{asset('dash/images/p-4.jpg')}}" alt="" />
+          <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -288,7 +300,7 @@
         </div>
 
         <div class="box">
-          <img src="{{asset('dash/images/p-4.jpg')}}" alt="" />
+          <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -305,7 +317,7 @@
         </div>
 
         <div class="box">
-          <img src="{{asset('dash/images/p-4.jpg')}}" alt="" />
+          <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -322,7 +334,7 @@
         </div>
 
         <div class="box">
-          <img src="{{asset('dash/images/p-4.jpg')}}" alt="" />
+          <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
             <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
@@ -343,6 +355,8 @@
     <!-- packages section ends -->
 
     <!-- custom js link file -->
-    <script src="{{asset('dash/dashboard.js')}}"></script>
+    <script src="{{asset('js/dashboard.js')}}"></script>
+    <script src="{{asset('js/jquery.js')}}"> </script>
+    <script src="{{asset('js/main.js')}}"> </script>
   </body>
 </html>
