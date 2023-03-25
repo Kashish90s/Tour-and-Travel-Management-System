@@ -13,7 +13,9 @@ class login_controller extends Controller
         $user = user_account::where('email', $request->email)->where('password', $request->password)->first();
 
         if($user){
-            session()->put('email', $user['email']);
+            session()->put('email', $user->email);
+            session()->put('fname', $user->fname);
+            session()->put('lname', $user->lname);
             session()->put('userType','user');
 
             return response()->json([
@@ -22,7 +24,9 @@ class login_controller extends Controller
                 'redirect' => '/'
             ]);
         } elseif($admin) {
-            session()->put('email', $admin['email']);
+            session()->put('email', $admin->email);
+            session()->put('fname', $admin->fname);
+            session()->put('lname', $admin->lname);
             session()->put('userType','admin');
 
             return response()->json([

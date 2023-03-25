@@ -46,9 +46,11 @@
             <!-- <a href="#">Profile </a> -->
 
             @if(session('userType')=='user')
-            <a href="#" onclick="goToProfileSettings()">Profile</a>
+            <a href="/profile">Profile</a>
             @endif
+
             <a href="#">Notification </a>
+
             @if(session('userType')=='admin')
             <a href="#">Admin Dashboard </a>
             @endif
@@ -63,7 +65,7 @@
           <p>Are you sure you want to logout?</p>
 
           <div class="button-container">
-            <a class="btn-confirm" href="{{route('logout')}}">Yes</a>
+            <a class="btn-confirm" href="/logout">Yes</a>
             <button class="btn-cancel" onclick="hideLogoutConfirmation()">
               Cancel
             </button>

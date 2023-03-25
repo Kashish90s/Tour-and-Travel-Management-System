@@ -27,9 +27,13 @@ searchBtn.addEventListener("click", () => {
   searchBar.classList.toggle("active");
 });
 
-formBtn.addEventListener("click", () => {
-  loginForm.classList.add("active");
-});
+try{
+
+    formBtn.addEventListener("click", () => {
+      loginForm.classList.add("active");
+    });
+}catch{}
+
 
 formClose.addEventListener("click", () => {
   loginForm.classList.remove("active");
@@ -57,12 +61,6 @@ settingMenu.addEventListener("mouseleave", function () {
   settingMenu.classList.remove("show");
 });
 
-// profile settings
-
-function goToProfileSettings() {
-  window.location.href = "profile-settings.html"; // Replace with the URL of your profile settings page
-}
-
 //logout settings
 function showLogoutConfirmation() {
   document.getElementById("logout-confirmation").style.display = "block";
@@ -73,8 +71,5 @@ function hideLogoutConfirmation() {
 }
 
 function logout() {
-  // Perform logout action here
-//   window.location.replace('/logout');
-  console.log("Logout successful.");
   hideLogoutConfirmation();
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user_controller;
 use App\Http\Controllers\admin_controller;
 use App\Http\Controllers\login_controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,33 +25,16 @@ Route::get('/ ',function(){
     return view('dashboard');
 });
 
-
-
-
-
-
-Route::view('/signupp','signup')->name('signup');
-
+Route::view('/signupp', 'signup')->name('signup');
+Route::view('/profile', 'profile-setting')->name('profile');
 
 Route::controller(login_controller::class)->group(function () {
-    Route::post('user', 'userlogin');
-    Route::get('logout','userlogout');
+    Route::post('/user', 'userlogin');
+    Route::get('/logout','userlogout');
 });
 
 Route::controller(user_controller::class)->group(function () {
     Route::post('userSignUp', 'userSignup');
+    Route::post('password', 'changePassword');
+    Route::post('account', 'changeDetails');
 });
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';
