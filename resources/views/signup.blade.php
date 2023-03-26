@@ -31,7 +31,7 @@
         <button type="submit" style="margin-bottom: 20px">Sign Up</button>
 
         <div class="login-link">
-          Already have an account? <a href="{{ route('dashboard') }}">Login</a>
+          Already have an account? <a href="/">Login</a>
         </div>
     </form>
 

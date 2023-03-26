@@ -28,7 +28,7 @@
               <div class="img-circle text-center mb-3">
                 <img src="{{ asset('images/user.png') }}" alt="Image" class="shadow" />
               </div>
-              <h4 class="text-center">{{ session('fname')." ".session('lname') }}</h4>
+              <h4 class="text-center">{{ $user['fname']." ".$user['lname'] }}</h4>
             </div>
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
@@ -49,35 +49,35 @@
             <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab" >
 
               <h3 class="mb-4">Account Settings</h3>
-              <form action="account" method="POST" class="main_form">
+              <form action="{{ route('update') }}" method="POST" class="main_form">
                 @csrf
               <div class="row">
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>First Name</label>
-                    <input type="text" class="form-control" value="{{ session('fname') }}" name="fname" />
+                    <input type="text" class="form-control" value="{{ $user['fname'] }}" name="fname" />
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Last Name</label>
-                    <input type="text" class="form-control" value="{{ session('lname') }}" name="lname" />
+                    <input type="text" class="form-control" value="{{ $user['lname'] }}" name="lname" />
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" value="{{ session('email') }}" name="email" />
+                    <input type="text" class="form-control" value="{{ $user['email'] }}" name="email" />
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Phone number</label>
-                    <input type="text" class="form-control" value="9876543215" name="number" />
+                    <input type="text" class="form-control" value="{{ $user['contact_number'] }}" name="number" />
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -88,8 +88,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Designation</label>
-                    <input type="text" class="form-control" value="" name="designation" />
+                    <label>Address</label>
+                    <input type="text" class="form-control" value="{{ $user['address'] }}" name="address" />
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -103,7 +103,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               </div>
               <div>
                 <button type="submit" class="btn btn-primary">Update</button>
-                <button class="btn btn-light">Cancel</button>
+                <button type="none" class="btn btn-light">Cancel</button>
               </div>
             </form>
 

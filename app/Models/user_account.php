@@ -12,5 +12,5 @@ class user_account extends Model
     public $incrementing = true;
     public $timestamps = false;
     use HasFactory;
-    
+
 }

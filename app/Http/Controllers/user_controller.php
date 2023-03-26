@@ -69,9 +69,11 @@ class user_controller extends Controller
         session()->put('lname', $request->lname);
 
         $userdb = user_account::where('email', session('email'));
-        $userdb->fname=$request->fname;
-        $userdb->lname=$request->lname;
-        $userdb->email=$request->email;
+        $userdb->fname = $request->fname;
+        $userdb->lname = $request->lname;
+        $userdb->contact_number = $request->number;
+        $userdb->address = $request->address;
+        $userdb->email = $request->email;
 
         return response()->json([
             'status' => true,

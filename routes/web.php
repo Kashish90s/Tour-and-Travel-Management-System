@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user_controller;
 use App\Http\Controllers\admin_controller;
 use App\Http\Controllers\login_controller;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +21,17 @@ use App\Http\Controllers\login_controller;
 
 
 
-Route::get('/ ',function(){
+Route::get('/',function(){
     return view('dashboard');
 });
 
 Route::view('/signupp', 'signup')->name('signup');
-Route::view('/profile', 'profile-setting')->name('profile');
+
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/profile', 'edit');
+    Route::post('/password', 'changePassword');
+    Route::post('/account', 'update')->name('update');
+});
 
 Route::controller(login_controller::class)->group(function () {
     Route::post('/user', 'userlogin');
@@ -35,6 +40,4 @@ Route::controller(login_controller::class)->group(function () {
 
 Route::controller(user_controller::class)->group(function () {
     Route::post('userSignUp', 'userSignup');
-    Route::post('password', 'changePassword');
-    Route::post('account', 'changeDetails');
 });

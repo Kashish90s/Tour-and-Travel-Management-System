@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\admin_user;
 use App\Models\user_account;
+
 class login_controller extends Controller
 {
     public function userlogin(Request $request)
@@ -13,9 +14,7 @@ class login_controller extends Controller
         $user = user_account::where('email', $request->email)->where('password', $request->password)->first();
 
         if($user){
-            session()->put('email', $user->email);
-            session()->put('fname', $user->fname);
-            session()->put('lname', $user->lname);
+            session()->put('id', $user->id);
             session()->put('userType','user');
 
             return response()->json([
@@ -24,9 +23,7 @@ class login_controller extends Controller
                 'redirect' => '/'
             ]);
         } elseif($admin) {
-            session()->put('email', $admin->email);
-            session()->put('fname', $admin->fname);
-            session()->put('lname', $admin->lname);
+            session()->put('id', $user->id);
             session()->put('userType','admin');
 
             return response()->json([
@@ -45,7 +42,7 @@ class login_controller extends Controller
 
 
     public function userlogout(){
-        session()->forget('email');
+        session()->forget('id');
         session()->forget('userType');
         session()->flush();
 

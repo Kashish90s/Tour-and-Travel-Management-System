@@ -1,7 +1,7 @@
 $(function(){
 
     $(".main_form").on('submit', function(e){
-        e.preventDefault();
+        // e.preventDefault();
 
         $.ajax({
             url:$(this).attr('action'),

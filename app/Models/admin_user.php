@@ -11,6 +11,7 @@ class admin_user extends Model
     protected $primaryKey = 'id';
     public $incrementing = false;
     public $timestamps = false;
+
     use HasFactory;
 }
 
