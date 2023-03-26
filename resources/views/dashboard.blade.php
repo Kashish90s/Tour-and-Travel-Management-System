@@ -96,9 +96,9 @@
         <span class="error-text"> </span>
         <input type="submit" value="login now" class="btn" />
 
-        <input type="checkbox" id="remember" />
+        {{-- <input type="checkbox" id="remember" /> --}}
 
-        <label for="remember">remember me</label>
+        {{-- <label for="remember">remember me</label> --}}
 
         <p>forgot password? <a href="#">click here</a></p>
 

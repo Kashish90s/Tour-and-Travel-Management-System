@@ -23,8 +23,8 @@ return new class extends Migration
             $table->id();
             $table->String('fname');
             $table->String('lname');
-            $table->integer('Contact_Number')->nullable();
-            $table->String('address');
+            $table->biginteger('Contact_Number')->nullable();
+            $table->String('address')->nullabel();
             $table->String('email')->unique();
             $table->String('password');
 

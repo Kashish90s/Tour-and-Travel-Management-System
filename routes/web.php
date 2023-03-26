@@ -31,6 +31,7 @@ Route::controller(ProfileController::class)->group(function () {
     Route::get('/profile', 'edit');
     Route::post('/password', 'changePassword');
     Route::post('/account', 'update')->name('update');
+    Route::post('/delete', 'deleteAccount')->name('AccountDeletation');
 });
 
 Route::controller(login_controller::class)->group(function () {
@@ -39,5 +40,5 @@ Route::controller(login_controller::class)->group(function () {
 });
 
 Route::controller(user_controller::class)->group(function () {
-    Route::post('userSignUp', 'userSignup');
+    Route::post('/userSignUp', 'userSignup')->name('addUser');
 });

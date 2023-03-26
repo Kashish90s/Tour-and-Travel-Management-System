@@ -25,8 +25,8 @@
         <div class="bg-white shadow rounded-lg d-block d-sm-flex">
           <div class="profile-tab-nav border-right">
             <div class="p-4">
-              <div class="img-circle text-center mb-3">
-                <img src="{{ asset('images/user.png') }}" alt="Image" class="shadow" />
+              <div class="text-center mb-3">
+                <img class="img-circle" src="{{ asset('images/user.png') }}" alt="Image" class="shadow" height="200" width="200" />
               </div>
               <h4 class="text-center">{{ $user['fname']." ".$user['lname'] }}</h4>
             </div>
@@ -41,7 +41,7 @@
               </a>
               <a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
                 <i class="fa fa-user text-center mr-1"></i>
-                Security
+                Delete Account
               </a>
             </div>
           </div>
@@ -77,7 +77,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Phone number</label>
-                    <input type="text" class="form-control" value="{{ $user['contact_number'] }}" name="number" />
+                    <input type="text" class="form-control" value="{{ $user['Contact_Number'] }}" name="number" />
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -148,7 +148,28 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
 
             </div>
             <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab" >
-              <h3 class="mb-4">Security Settings</h3>
+
+                {{-- Delete user account section --}}
+                <h3 class="mb-4">Delete Account</h3>
+              <form action="{{ route('AccountDeletation') }}" method="POST">
+                @csrf
+                <p>
+                  Are you sure you want to delete your account? This action
+                  cannot be undone.
+                </p>
+                <div class="form-group">
+                  <label for="password">Enter your password to confirm:</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    id="password"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-danger">Delete Account </button>
+              </form>
+              {{-- <h3 class="mb-4">Security Settings</h3>
               <form action="">
               @csrf
               <div class="row">
@@ -184,9 +205,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               <div>
                 <button type="submit" class="btn btn-primary">Update</button>
                 <button class="btn btn-light">Cancel</button>
-              </div>
+              </div> --}}
 
-            </form>
+            {{-- </form> --}}
 
             </div>
             <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab" >

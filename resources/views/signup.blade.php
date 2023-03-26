@@ -7,7 +7,7 @@
   </head>
   <body>
 
-    <form class="signup-form main_form" method="POST" action="userSignUp">
+    <form class="signup-form main_form" method="POST" action="{{ route('addUser') }}">
         @csrf
         <div class="close-icon">&times;</div>
         <h2>Sign Up</h2>

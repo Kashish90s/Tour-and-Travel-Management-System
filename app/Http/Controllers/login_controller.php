@@ -23,7 +23,7 @@ class login_controller extends Controller
                 'redirect' => '/'
             ]);
         } elseif($admin) {
-            session()->put('id', $user->id);
+            session()->put('id', $admin->id);
             session()->put('userType','admin');
 
             return response()->json([

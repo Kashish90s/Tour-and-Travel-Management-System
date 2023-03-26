@@ -28,7 +28,7 @@ class ProfileController extends Controller
     }
 
     public function changePassword(Request $request) {
-        $query = user_account::where('email', session('email'))->where('password', $request->oldPassword)->first();
+        $query = user_account::where('id', session('id'))->where('password', $request->oldPassword)->first();
 
         if ($query) {
             if ($request->newPassword == $request->confirmPassword) {
@@ -66,6 +66,8 @@ class ProfileController extends Controller
 
         $userdb = user_account::find(session('id'));
 
+        // dd($request->number);
+
         $userdb->fname = $request->fname;
         $userdb->lname = $request->lname;
         $userdb->Contact_Number = $request->number;
@@ -84,21 +86,23 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function deleteAccount(Request $request): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current-password'],
-        ]);
+        $query = user_account::find(session('id'));
 
-        $user = $request->user();
+        if ($query->password == $request->password) {
+            session()->forget('id');
+            session()->forget('userType');
 
-        Auth::logout();
+            $query->delete();
 
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+            return redirect('/');
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Password Does not Match',
+                'redirect' => '#'
+            ]);
+        }
     }
 }
