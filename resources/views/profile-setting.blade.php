@@ -103,7 +103,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               </div>
               <div>
                 <button type="submit" class="btn btn-primary">Update</button>
-                <button type="none" class="btn btn-light">Cancel</button>
+                {{-- <button type="none" class="btn btn-light">Cancel</button> --}}
               </div>
             </form>
 
@@ -142,7 +142,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
 
                 <div>
                   <button type="submit" class="btn btn-primary">Update</button>
-                  <button class="btn btn-light">Cancel</button>
+                  {{-- <button class="btn btn-light">Cancel</button> --}}
                 </div>
               </form>
 
