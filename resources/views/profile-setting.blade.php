@@ -151,24 +151,20 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
 
                 {{-- Delete user account section --}}
                 <h3 class="mb-4">Delete Account</h3>
-              <form action="{{ route('AccountDeletation') }}" method="POST">
+              <form action="{{ route('AccountDeletation') }}" method="POST" class="main_form">
                 @csrf
                 <p>
                   Are you sure you want to delete your account? This action
                   cannot be undone.
                 </p>
                 <div class="form-group">
+                  <span class="error-text"></span> <br>
                   <label for="password">Enter your password to confirm:</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    name="password"
-                    id="password"
-                    required
-                  />
+                  <input type="password" class="form-control" name="password" id="password" required />
                 </div>
                 <button type="submit" class="btn btn-danger">Delete Account </button>
               </form>
+
               {{-- <h3 class="mb-4">Security Settings</h3>
               <form action="">
               @csrf

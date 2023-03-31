@@ -27,12 +27,12 @@ searchBtn.addEventListener("click", () => {
   searchBar.classList.toggle("active");
 });
 
-try{
+try{ //<------- \/^ this try and catch code fixed dashboard bugged ^\/
 
     formBtn.addEventListener("click", () => {
       loginForm.classList.add("active");
     });
-}catch{}
+}catch{} //
 
 
 formClose.addEventListener("click", () => {

@@ -19,7 +19,9 @@ use App\Http\Controllers\ProfileController;
 
 
 
-
+Route::get('/d',function(){
+    return view('booking');
+});
 
 Route::get('/',function(){
     return view('dashboard');
@@ -42,3 +44,5 @@ Route::controller(login_controller::class)->group(function () {
 Route::controller(user_controller::class)->group(function () {
     Route::post('/userSignUp', 'userSignup')->name('addUser');
 });
+
+

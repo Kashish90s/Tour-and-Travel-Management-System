@@ -86,7 +86,7 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
-    public function deleteAccount(Request $request): RedirectResponse
+    public function deleteAccount(Request $request) // : RedirectResponse  // <---- (:) Extends
     {
         $query = user_account::find(session('id'));
 
@@ -96,12 +96,21 @@ class ProfileController extends Controller
 
             $query->delete();
 
-            return redirect('/');
+            // return redirect('/'); // <-- Bugged Code
+
+            //     \/Below\/     is the Solved bug for the   /\above/\    commented code
+            return response()->json([
+                'status' => true,
+                'message' => 'Account Deleted Successfully',
+                'redirect' => '/'
+
+            ]);
         } else {
             return response()->json([
                 'status' => false,
                 'message' => 'Password Does not Match',
                 'redirect' => '#'
+
             ]);
         }
     }
