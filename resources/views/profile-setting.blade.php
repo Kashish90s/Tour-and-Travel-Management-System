@@ -78,6 +78,7 @@
                   <div class="form-group">
                     <label>Phone number</label>
                     <input type="text" class="form-control" value="{{ $user['Contact_Number'] }}" name="number" />
+                    <span class="error-text" style="color: rgb(232, 38, 38)"></span>
                   </div>
                 </div>
                 <div class="col-md-6">

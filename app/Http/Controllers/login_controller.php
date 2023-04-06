@@ -45,7 +45,6 @@ class login_controller extends Controller
         session()->forget('id');
         session()->forget('userType');
         session()->flush();
-
         return redirect('/');
     }
 

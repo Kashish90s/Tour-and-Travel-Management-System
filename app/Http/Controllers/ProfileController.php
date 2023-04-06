@@ -66,6 +66,17 @@ class ProfileController extends Controller
 
         $userdb = user_account::find(session('id'));
 
+         // Validate contact number length
+        if (strlen($request->number) != 10) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Contact number must be at least 10 digits',
+                'redirect' => 'profile'
+            ]);
+        }
+
+
+
         // dd($request->number);
 
         $userdb->fname = $request->fname;
@@ -73,8 +84,12 @@ class ProfileController extends Controller
         $userdb->Contact_Number = $request->number;
         $userdb->address = $request->address;
         $userdb->email = $request->email;
+        // $userdb->company = $request->company;
+
+             // Validate password length
 
         $userdb->save();
+
 
         return response()->json([
             'status' => true,

@@ -9,15 +9,15 @@
 
     <form class="signup-form main_form" method="POST" action="{{ route('addUser') }}">
         @csrf
-        <div class="close-icon">&times;</div>
+        {{-- <div class="close-icon">&times;</div> --}}
         <h2>Sign Up</h2>
         <label for="username">FirstName</label>
-        <input type="text" id="username" name="fname" required />
+        <input type="text" id="username" name="fname" pattern="^[A-Z][a-z]*" title="First letter must me Capital" required />
         <label for="username">LastName</label>
-        <input type="text" id="username" name="lname" required />
+        <input type="text" id="username" name="lname" pattern="^[A-Z][a-z]*" title="First letter must me Capital" required />
 
         <label for="username">Email</label>
-        <input type="text" id="username" name="email" pattern="[a-zA-Z]+@[a-zA-Z]+.com" title="Email should contain @ and .com" required />
+        <input type="text" id="username" name="email" pattern="[a-zA-Z0-9]+@[a-zA-Z]+.com" title="Email should contain @ and .com" required />
 
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required />

@@ -24,10 +24,11 @@ return new class extends Migration
             $table->String('fname');
             $table->String('lname');
             $table->biginteger('Contact_Number')->nullable();
+
             $table->String('address')->nullabel();
             $table->String('email')->unique();
             $table->String('password');
-
+            // $table->String('company')->nullabel();
         });
     }
 

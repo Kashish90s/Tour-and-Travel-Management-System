@@ -100,7 +100,7 @@
 
         {{-- <label for="remember">remember me</label> --}}
 
-        <p>forgot password? <a href="#">click here</a></p>
+        <p>forgot password? <a href="{{route('forgot')}}">click here</a></p>
 
         <p>don't have an account? <a href="{{route('signup')}}">Register now</a></p>
       </form>

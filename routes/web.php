@@ -19,15 +19,23 @@ use App\Http\Controllers\ProfileController;
 
 
 
-Route::get('/d',function(){
-    return view('booking');
-});
+// Route::get('/d',function(){
+//     return view('booking');
+// });
+
+// Route::get('/d',function(){
+//     return view('verifyEmail');
+// });
+// Route::get('/e',function(){
+//     return view('verifyEmail');
+// });
 
 Route::get('/',function(){
     return view('dashboard');
 });
 
 Route::view('/signupp', 'signup')->name('signup');
+Route::view('/forget', 'forgot')->name('forgot');
 
 Route::controller(ProfileController::class)->group(function () {
     Route::get('/profile', 'edit');
