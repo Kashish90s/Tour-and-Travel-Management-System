@@ -12,6 +12,8 @@ class login_controller extends Controller
     {
         $admin = admin_user::where('email', $request->email)->where('password', $request->password)->first();
         $user = user_account::where('email', $request->email)->where('password', $request->password)->first();
+        // $User_detail = user_account::where('fname', $request->fname)->first();
+
 
         if($user){
             session()->put('id', $user->id);

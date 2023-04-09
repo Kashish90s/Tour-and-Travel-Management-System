@@ -36,6 +36,7 @@ Route::get('/',function(){
 
 Route::view('/signupp', 'signup')->name('signup');
 Route::view('/forget', 'forgot')->name('forgot');
+Route::view('/booking', 'booking')->name('booking');
 
 Route::controller(ProfileController::class)->group(function () {
     Route::get('/profile', 'edit');

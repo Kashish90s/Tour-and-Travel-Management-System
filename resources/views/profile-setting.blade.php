@@ -113,7 +113,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               <h3 class="mb-4">Password Settings</h3>
               <form action="password" method="POST" class="main_form">
                 @csrf
-                <span class="error-text"></span>
+                <span style="color: rgb(232, 38, 38" class="error-text"></span>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">

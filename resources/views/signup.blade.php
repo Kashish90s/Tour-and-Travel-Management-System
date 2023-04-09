@@ -7,7 +7,7 @@
   </head>
   <body>
 
-    <form class="signup-form main_form" method="POST" action="{{ route('addUser') }}">
+    <form autocomplete="off" class="signup-form main_form" method="POST" action="{{ route('addUser') }}">
         @csrf
         {{-- <div class="close-icon">&times;</div> --}}
         <h2>Sign Up</h2>
@@ -25,7 +25,9 @@
         <label for="password">Confirm Password</label>
         <input type="password" id="password" name="confirmpassword" required />
 
-        <span class="error-text"></span>
+        <span style="color: rgb(232, 38, 38)": @auth
+
+        @endauth" class="error-text"></span>
 
         <!-- <button type="submit">Sign Up</button> -->
         <button type="submit" style="margin-bottom: 20px">Sign Up</button>

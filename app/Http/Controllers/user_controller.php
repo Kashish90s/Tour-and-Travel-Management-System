@@ -21,7 +21,7 @@ class user_controller extends Controller
 
 
          // Validate password length
-        if (strlen($request->password) !=5) {
+        if (strlen($request->password) <=5) {
             return response()->json([
                 'status' => false,
                 'message' => 'Password must be at least 5 characters long',

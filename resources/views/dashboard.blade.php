@@ -93,7 +93,7 @@
         <input type="email" name="email" class="box" placeholder="enter your email" />
 
         <input type="password" name="password" class="box" placeholder="enter your password" />
-        <span class="error-text"> </span>
+        <span style="color: rgb(232, 38, 38" class="error-text"> </span>
         <input type="submit" value="login now" class="btn" />
 
         {{-- <input type="checkbox" id="remember" /> --}}
@@ -212,7 +212,7 @@
               <i class="far fa-star"></i>
             </div>
             <div class="price">$90.00 <span>$120.00</span></div>
-            <a href="booking.html" class="btn">explore more</a>
+            <a href="{{route('booking')}}" class="btn">explore more</a>
           </div>
         </div>
 
