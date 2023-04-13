@@ -9,28 +9,26 @@ class user_controller extends Controller
     public function userSignup(Request $request){
 
          // Check if the email already exists in the database
-    $existingUser = user_account::where('email', $request->email)->first();
-
-    if ($existingUser) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Email address already exists',
-            'redirect' => 'signup'
-        ]);
-    }
-
-
-         // Validate password length
-        if (strlen($request->password) <=5) {
+        $existingUser = user_account::where('email', $request->email)->first();
+        if ($existingUser) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Email address already exists',
+                'redirect' => 'signup'
+            ]);
+        }
+        else if(strlen($request->password) <=5) {
             return response()->json([
                 'status' => false,
                 'message' => 'Password must be at least 5 characters long',
                 'redirect' => 'signup'
             ]);
         }
+                // Validate password length
+
+
         //check if the password are simiar or not
         if ($request->password == $request->confirmpassword) {
-
             $userdb=new user_account();
             $userdb->fname=$request->fname;
             $userdb->lname=$request->lname;
@@ -42,7 +40,7 @@ class user_controller extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'Users Registered Successfully',
-                'redirect' => '/'
+                'redirect' => 'verify'
             ]);
         } else {
             return response()->json([

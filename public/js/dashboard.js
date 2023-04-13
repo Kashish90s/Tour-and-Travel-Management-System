@@ -53,13 +53,20 @@ videoBtn.forEach((btn) => {
 var settingBtn = document.getElementById("setting-btn");
 var settingMenu = document.getElementById("setting-menu");
 
-settingBtn.addEventListener("mouseenter", function () {
-  settingMenu.classList.add("show");
-});
+try {
+    settingBtn.addEventListener("mouseenter", function () {
+        settingMenu.classList.add("show");
+      });
 
-settingMenu.addEventListener("mouseleave", function () {
-  settingMenu.classList.remove("show");
-});
+} catch {}
+
+try {
+    settingMenu.addEventListener("mouseleave", function () {
+        settingMenu.classList.remove("show");
+      });
+
+} catch  {}
+
 
 //logout settings
 function showLogoutConfirmation() {

@@ -1,5 +1,4 @@
 $(function(){
-
     $(".main_form").on('submit', function(e){
         e.preventDefault();
 

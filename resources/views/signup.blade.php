@@ -3,11 +3,11 @@
   <head>
     <title>Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{asset('signup/style.css')}}" />
+    <link rel="stylesheet" href="{{ asset('signup/style.css') }}" />
   </head>
   <body>
 
-    <form autocomplete="off" class="signup-form main_form" method="POST" action="{{ route('addUser') }}">
+    <form  class="signup-form main_form" method="POST" action="{{ route('checkEmail') }}">
         @csrf
         {{-- <div class="close-icon">&times;</div> --}}
         <h2>Sign Up</h2>
@@ -25,9 +25,7 @@
         <label for="password">Confirm Password</label>
         <input type="password" id="password" name="confirmpassword" required />
 
-        <span style="color: rgb(232, 38, 38)": @auth
-
-        @endauth" class="error-text"></span>
+        <span style="color: rgb(232, 38, 38)" class="error-text"></span>
 
         <!-- <button type="submit">Sign Up</button> -->
         <button type="submit" style="margin-bottom: 20px">Sign Up</button>
@@ -37,8 +35,8 @@
         </div>
     </form>
 
-    <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="{{asset('js/main.js')}}"></script>
+    {{-- <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script> --}}
   </body>
 
 

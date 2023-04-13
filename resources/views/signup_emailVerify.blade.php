@@ -15,7 +15,7 @@
         <h2>Email Check</h2>
         <p>It's quick and easy.</p>
         <div id="line"></div>
-        <form action="{{route('check')}}" method="POST"   >
+        <form action="{{ route('checkEmail') }}" method="POST"   >
             @csrf
             <input type="email" name="email" placeholder="Email"><br>
             <input type="submit" name="forgot_password" value="Check">
