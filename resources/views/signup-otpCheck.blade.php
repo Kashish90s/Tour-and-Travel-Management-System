@@ -13,11 +13,12 @@
         <div id="line"></div>
         <form action="{{ route('otpCheck') }}" method="POST">
             @csrf
-            <input name="fname" value="{{ session('fname') }}" hidden />
-            <input name="lname" value="{{ session('lname') }}" hidden />
-            <input name="email" value="{{ session('email') }}" hidden />
-            <input value="{{ session('password') }}" name="password" hidden />
-            <input value="{{ session('confirmpassword') }}" name="confirmpassword" hidden />
+
+            <input name="fname" value="{{ session('data.fname') }}" hidden />
+            <input name="lname" value="{{ session('data.lname') }}" hidden />
+            <input name="email" value="{{ session('data.email') }}" hidden />
+            <input value="{{ session('data.password') }}" name="password" hidden />
+            <input value="{{ session('data.confirmpassword') }}" name="confirmpassword" hidden />
 
             <input type="number" name="OTPverify" placeholder="Verification Code" required><br>
             <input type="submit" name="verifyEmail" value="Verify">
