@@ -52,7 +52,7 @@
             <a href="#">Notification </a>
 
             @if(session('userType')=='admin')
-            <a href="#">Admin Dashboard </a>
+            <a href="{{route('admindashboard')}}">Admin Dashboard </a>
             @endif
 
 
@@ -66,9 +66,7 @@
 
           <div class="button-container">
             <a class="btn-confirm" href="/logout">Yes</a>
-            <button class="btn-cancel" onclick="hideLogoutConfirmation()">
-              Cancel
-            </button>
+            <button class="btn-cancel" onclick="hideLogoutConfirmation()">Cancel</button>
           </div>
         </div>
       </div>
@@ -93,7 +91,7 @@
         <input type="email" name="email" class="box" placeholder="enter your email" />
 
         <input type="password" name="password" class="box" placeholder="enter your password" />
-        <span style="color: rgb(232, 38, 38" class="error-text"> </span>
+        <span style="color: #ffa500" class="error-text"> </span>
         <input type="submit" value="login now" class="btn" />
 
         {{-- <input type="checkbox" id="remember" /> --}}
@@ -202,7 +200,7 @@
         <div class="box">
           <img src="{{asset('images/p-1.jpg')}}" alt="" />
           <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> Boudhanath Stupa</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
             <div class="stars">
               <i class="fas fa-star"></i>
@@ -219,7 +217,7 @@
         <div class="box">
           <img src="{{asset('images/p-2.jpg')}}" alt="" />
           <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> Pokhara</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
             <div class="stars">
               <i class="fas fa-star"></i>
@@ -236,7 +234,7 @@
         <div class="box">
           <img src="{{asset('images/p-3.jpg')}}" alt="" />
           <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> Mount Everest </h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
             <div class="stars">
               <i class="fas fa-star"></i>
@@ -253,7 +251,7 @@
         <div class="box">
           <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> Annapurna Base Camp</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
             <div class="stars">
               <i class="fas fa-star"></i>
@@ -270,7 +268,7 @@
         <div class="box">
           <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> Lumbini</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
             <div class="stars">
               <i class="fas fa-star"></i>
@@ -287,7 +285,7 @@
         <div class="box">
           <img src="{{asset('images/p-4.jpg')}}" alt="" />
           <div class="content">
-            <h3><i class="fas fa-map-marker-alt"></i>Boudhanath Stupa</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> Chitwan National Park</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
             <div class="stars">
               <i class="fas fa-star"></i>

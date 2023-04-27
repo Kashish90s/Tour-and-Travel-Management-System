@@ -12,7 +12,7 @@ class signupVerification extends Controller
 {
     //
     public function checkEmail(Request $request){
-        $user = new user_controller;
+        $user = new user_controller();
 
         if ($user->checkEmail($request->email)) {
             return response()->json([
@@ -37,10 +37,10 @@ class signupVerification extends Controller
         $userr['to'] = $request->email;
         $otp = mt_rand(100000, 999999);
 
-        // Mail::send('mail', ['otp' => $otp],function($messages) use ($userr){
-        //     $messages->to($userr['to']);
-        //     $messages->subject('Your new OTP');
-        // });
+        Mail::send('mail', ['otp' => $otp],function($messages) use ($userr){
+            $messages->to($userr['to']);
+            $messages->subject('Your new OTP');
+        });
 
         session()->put('otp', $otp);
         session()->put('data', [

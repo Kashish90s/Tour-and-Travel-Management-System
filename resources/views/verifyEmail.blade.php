@@ -18,7 +18,7 @@
             <input type="submit" name="verifyEmail" value="Verify">
 
             @if(session('error'))
-                <div class="alert alert-danger">
+                <div style="color: #ffa500" class="alert alert-danger">
                     {{ session('error') }}
                 </div>
             @endif

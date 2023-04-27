@@ -20,7 +20,7 @@
             <input type="email" name="email" placeholder="Email"><br>
             <input type="submit" name="forgot_password" value="Check">
 
-            <span style="color: rgb(232, 38, 38)": @auth
+            <span style="color:#ffa500": @auth
 
             @endauth" class="error-text"></span>
 

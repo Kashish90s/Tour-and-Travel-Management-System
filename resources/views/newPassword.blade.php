@@ -17,7 +17,7 @@
                 @csrf
                 <input type="password" name="newPassword" placeholder="newPassword" required><br>
                 <input type="password" name="confirmPassword" placeholder="ConfirmPassword" required><br>
-                <button type="submit">Save</button>
+                <button class="btn0-color" type="submit">Save</button>
             </form>
         </div>
     </body>

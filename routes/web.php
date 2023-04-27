@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\laravelMail;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\signupVerification;
+use App\Http\Controllers\booking_controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,8 +23,8 @@ use App\Http\Controllers\signupVerification;
 
 
 
-// Route::get('/',function(){
-//     return view('dashboard');
+// Route::get('/aa',function(){
+//     return view('admindash');
 // });
 
 Route::match(['get', 'post'], '/', function () {
@@ -31,17 +32,18 @@ Route::match(['get', 'post'], '/', function () {
 });
 
 
-
+// !!-------------------------redirect route--------------------------------------------------------------------!!
 
 Route::view('/signupp', 'signup')->name('signup');
 Route::view('/forget', 'forgot')->name('forgot');
 Route::view('/booking', 'booking')->name('booking');
 Route::view('/otp', 'verifyEmail')->name('verifyEmail');
 Route::view('/signup_emailcheck', 'signup_emailVerify')->name('signup_emailcheck');
+Route::view('/admindashboard', 'admindash')->name('admindashboard');
 
 
 
-
+// ---------------------------User Profile ----------------------------------------------------------------------
 
 Route::controller(ProfileController::class)->group(function () {
     Route::get('/profile', 'edit');
@@ -50,17 +52,25 @@ Route::controller(ProfileController::class)->group(function () {
     Route::post('/delete', 'deleteAccount')->name('AccountDeletation');
 });
 
+
+
+// ----------------------------- Login -----------------------------------------------------------------------------
+
+
 Route::controller(login_controller::class)->group(function () {
     Route::post('/user', 'userlogin');
     Route::get('/logout','userlogout');
 });
+
+
+//-----------------------------------
 
 Route::controller(user_controller::class)->group(function () {
     Route::post('/userSignUp', 'userSignup')->name('addUser');
     // Route::post('/userSignUp', 'userSignup')->name('verify');
 });
 
-
+//------------------------------------Forge Password ------------------------------------------------------------
 
 Route::post('/check', [laravelMail::class, 'check'])->name('check');
 Route::post('/verify', [laravelMail::class, 'verify'])->name('verify');
@@ -73,12 +83,12 @@ Route::get('/otp', function () {
     return view('verifyEmail');
 })->name('verifyemail');
 
-
+//------------------------------------Sign up verfification --------------------------------------------------------
 
 Route::controller(signupVerification::class)->group(function () {
    Route::post('/checkEmail','checkEmail')->name('checkEmail');
    Route::post('/otpCheck','checkOtp')->name('otpCheck');
-   Route::post('/signupp','signup')->name('signup');
+//    Route::post('/signupp','signup')->name('signup');
 });
 
 
@@ -86,3 +96,32 @@ Route::controller(signupVerification::class)->group(function () {
 Route::get('/checkOtp', function () {
     return view('signup-otpCheck');
 })->name('signup-otpCheck');
+
+
+// ------------------------booking --------------------------------------------------------------------------------------
+
+// Route::controller(booking_controller::class)->group(function(){
+
+//     Route::post('destination','destination')->name('destination');
+
+// });
+
+Route::post('/destination', [booking_controller::class, 'destination'])->name('destination');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------admin dashboard-----------------------------------------------------------
+
+
+

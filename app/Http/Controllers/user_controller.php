@@ -7,14 +7,15 @@ use App\Models\user_account;
 class user_controller extends Controller
 {
     public function checkEmail($email) {
-        $existingUser = user_account::where('email', $email)->first();
-
+        $existingUser = user_account::where('email',$email)->first();
+        // dd( $existingUser);
         return $existingUser;
     }
 
     public function userSignup(Request $request){
 
-        if (checkEmail($request->email)) {
+        $existingUser = user_account::where('email', $request->email)->first();
+        if ($existingUser) {
             return response()->json([
                 'status' => false,
                 'message' => 'Users Already Registered with that Email',

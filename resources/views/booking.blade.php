@@ -7,6 +7,8 @@
     <title>booking</title>
 
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}" />
+    {{-- <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script> --}}
   </head>
   <body>
     <section class="book" id="book">
@@ -30,22 +32,28 @@
           <p>Description of the destination goes here...</p>
         </div>
 
-        <form action="">
+        <form action="{{ route('destination') }}" method="POST" name="add-blog-post-form" >
+            @csrf
+            <div class="inputBox">
+                <h3>Destination</h3>
+                <input type="text" name="destination" placeholder="Destination name" />
+              </div>
           <div class="inputBox">
             <h3>how many</h3>
-            <input type="number" placeholder="number of guests" />
+            <input type="number" name="guest" placeholder="number of guests" />
           </div>
           <div class="inputBox">
             <h3>arrivals</h3>
-            <input type="date" />
+            <input type="date" name="arrival" />
           </div>
 
           <div class="inputBox">
             <h3>leaving</h3>
-            <input type="date" />
+            <input type="date" name="leaving" />
           </div>
 
-          <input type="submit" class="btn" value="book now" />
+          {{-- <input type="submit" class="btn" value="book now" /> --}}
+          <button type="submit" class="btn" style="margin-bottom: 20px">book now</button>
         </form>
       </div>
     </section>

@@ -24,7 +24,7 @@
 
         <label for="password">Confirm Password</label>
         <input type="password" id="password" name="confirmpassword" required />
-        <span style="color: rgb(232, 38, 38)" class="error-text">{{ $errors->first('email') }}</span>
+        <span style="color:#ffa500" class="error-text">{{ $errors->first('email') }}</span>
         {{-- <span style="color: rgb(232, 38, 38)" class="error-text"></span> --}}
 
         <!-- <button type="submit">Sign Up</button> -->

@@ -78,15 +78,15 @@
                   <div class="form-group">
                     <label>Phone number</label>
                     <input type="text" class="form-control" value="{{ $user['Contact_Number'] }}" name="number" />
-                    <span class="error-text" style="color: rgb(232, 38, 38)"></span>
+                    <span class="error-text" style="color:#ffa500"></span>
                   </div>
                 </div>
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                   <div class="form-group">
                     <label>Company</label>
                     <input type="text" class="form-control" value="" name="company" />
                   </div>
-                </div>
+                </div> --}}
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Address</label>
@@ -103,7 +103,8 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
                 </div>
               </div>
               <div>
-                <button type="submit" class="btn btn-primary">Update</button>
+
+                  <button type="submit" class="btn btn-primary">Update</button>
                 {{-- <button type="none" class="btn btn-light">Cancel</button> --}}
               </div>
             </form>
@@ -113,7 +114,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               <h3 class="mb-4">Password Settings</h3>
               <form action="password" method="POST" class="main_form">
                 @csrf
-                <span style="color: rgb(232, 38, 38" class="error-text"></span>
+                <span style="color: #ffa500" class="error-text"></span>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">

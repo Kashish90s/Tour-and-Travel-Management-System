@@ -21,6 +21,7 @@
   color: #ffa500;
 }
 
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -168,6 +169,7 @@ header .icons i:hover {
 }
 
 .dialog-box {
+  /* opacity: 0.5; */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -179,6 +181,7 @@ header .icons i:hover {
   width: 400px;
   height: auto;
   justify-content: space-between;
+
 }
 
 .dialog-box p {
@@ -196,10 +199,11 @@ header .icons i:hover {
   justify-content: center;
   align-items: center;
   margin-top: auto;
+
 }
 
 .btn-confirm {
-  background-color: #2f4d30;
+  background-color: #ffa500;
   color: white;
   padding: 10px 20px;
   margin-right: 10px;
