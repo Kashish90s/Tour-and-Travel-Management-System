@@ -4,8 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\user_account;
+use Illuminate\Support\Facades\File;
+
 class user_controller extends Controller
 {
+
+    public function uploadPicture(Request $request) {
+        $file = $request->file('profile_picture');
+        $filename = uniqid(). '.' .File::extension($file->getClientOriginalName());
+        $file->move(public_path().'/images/userProfilePicture', $filename);
+
+        $user = user_account::where('id', session('id'))->first();
+
+        $user->img_path = 'images/userProfilePicture/'.$filename;
+
+        $user->save();
+
+        return redirect('profile');
+    }
+
+
     public function checkEmail($email) {
         $existingUser = user_account::where('email',$email)->first();
         // dd( $existingUser);
@@ -36,5 +54,15 @@ class user_controller extends Controller
             'message' => 'Users Registered Successfully',
             'redirect' => 'verify'
         ]);
+    }
+
+
+    public function explore(){
+        if(session('id')){
+            return redirect()->route('booking');
+        } else {
+            return redirect('/');;
+        }
+
     }
 }

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>booking</title>
+    <title>Booking</title>
 
-    <link rel="stylesheet" href="{{asset('css/dashboard.css')}}" />
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/booking.css') }}" />
     {{-- <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script> --}}
-  </head>
-  <body>
-    <section class="book" id="book">
-      <h1 class="heading">
+</head>
+
+<body>
+    <h1 class="heading">
         <span>e</span>
         <span>x</span>
         <span>p</span>
@@ -20,44 +22,56 @@
         <span>o</span>
         <span>r</span>
         <span>e</span>
-      </h1>
+    </h1>
+    <section class="book" id="blur">
+        <div class="row">
+            <div class="image">
+                <img src="{{ asset($info['picture_link']) }}" alt="" />
+            </div>
 
-      <div class="row">
-        <div class="image">
-          <img src="{{asset('images/p-1.jpg')}}" alt="" />
+            <div class="description">
+                <h2>{{ $info['destination'] }}</h2>
+                <p>{{ $info['description'] }}</p>
+            </div>
+
+            <form action="{{ route('esewa') }}" method="POST" name="add-blog-post-form">
+                @csrf
+                <div class="inputBox">
+                    <h3>how many</h3>
+                    <input type="number" name="guest" placeholder="number of guests" />
+                </div>
+                <div class="inputBox">
+                    <h3>arrivals</h3>
+                    <input type="date" name="arrival" />
+                </div>
+
+                <div class="inputBox">
+                    <h3>leaving</h3>
+                    <input type="date" name="leaving" />
+                </div>
+
+                <input type="text" name="price" value="{{ $info['pricing'] }}" hidden>
+                <button type="button" class="btn" style="margin-bottom: 20px" onclick="showMsg()">book now</button>
         </div>
-
-        <div class="description">
-          <h2>Destination Name</h2>
-          <p>Description of the destination goes here...</p>
-        </div>
-
-        <form action="{{ route('destination') }}" method="POST" name="add-blog-post-form" >
-            @csrf
-            <div class="inputBox">
-                <h3>Destination</h3>
-                <input type="text" name="destination" placeholder="Destination name" />
-              </div>
-          <div class="inputBox">
-            <h3>how many</h3>
-            <input type="number" name="guest" placeholder="number of guests" />
-          </div>
-          <div class="inputBox">
-            <h3>arrivals</h3>
-            <input type="date" name="arrival" />
-          </div>
-
-          <div class="inputBox">
-            <h3>leaving</h3>
-            <input type="date" name="leaving" />
-          </div>
-
-          {{-- <input type="submit" class="btn" value="book now" /> --}}
-          <button type="submit" class="btn" style="margin-bottom: 20px">book now</button>
-        </form>
-      </div>
     </section>
-  </body>
+    <div class="payment-container" id="container">
+        <div>Esewa ID: <input type="text" name="number" id="number"></div>
+        <button class="btn btn-primary" type="submit">Pay By Esewa</button>
+        <button class="btn btn-primary" type="button" onclick="showMsg()">Close</button>
+    </div>
+    </form>
+</body>
+
+<script>
+    function showMsg() {
+        var blur = document.getElementById('blur');
+        blur.classList.toggle('active');
+
+        var container = document.getElementById('container');
+        container.classList.toggle('active');
+    }
+</script>
+
 </html>
 
 <!-- <!DOCTYPE html>

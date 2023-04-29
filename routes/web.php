@@ -9,6 +9,7 @@ use App\Http\Controllers\laravelMail;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\signupVerification;
 use App\Http\Controllers\booking_controller;
+use App\Http\Controllers\EsewaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,22 +22,10 @@ use App\Http\Controllers\booking_controller;
 */
 
 
-
-
-// Route::get('/aa',function(){
-//     return view('admindash');
-// });
-
-Route::match(['get', 'post'], '/', function () {
-    return view('dashboard');
-});
-
-
 // !!-------------------------redirect route--------------------------------------------------------------------!!
 
 Route::view('/signupp', 'signup')->name('signup');
 Route::view('/forget', 'forgot')->name('forgot');
-Route::view('/booking', 'booking')->name('booking');
 Route::view('/otp', 'verifyEmail')->name('verifyEmail');
 Route::view('/signup_emailcheck', 'signup_emailVerify')->name('signup_emailcheck');
 Route::view('/admindashboard', 'admindash')->name('admindashboard');
@@ -67,7 +56,8 @@ Route::controller(login_controller::class)->group(function () {
 
 Route::controller(user_controller::class)->group(function () {
     Route::post('/userSignUp', 'userSignup')->name('addUser');
-    // Route::post('/userSignUp', 'userSignup')->name('verify');
+    Route::get('/bookingPage', 'explore')->name('bookingPage');
+    Route::post('/changePP', 'uploadPicture')->name('uploadPicture');
 });
 
 //------------------------------------Forge Password ------------------------------------------------------------
@@ -100,15 +90,13 @@ Route::get('/checkOtp', function () {
 
 // ------------------------booking --------------------------------------------------------------------------------------
 
-// Route::controller(booking_controller::class)->group(function(){
+Route::controller(booking_controller::class)->group(function(){
 
-//     Route::post('destination','destination')->name('destination');
+    Route::post('/destination','destination')->name('destination');
+    Route::get('/', 'showPackages')->name('/');
+    ROute::get('/booking/{id}', 'showBookingPage')->name('showBookingPage');
 
-// });
-
-Route::post('/destination', [booking_controller::class, 'destination'])->name('destination');
-
-
+});
 
 
 
@@ -116,6 +104,32 @@ Route::post('/destination', [booking_controller::class, 'destination'])->name('d
 
 
 
+
+
+
+
+
+//-----------------------Payment System----------------------------------
+
+
+Route::get('/payment', function () {
+    return view('esewaPayment');
+});
+
+Route::post('/esewa', [EsewaController::class, 'esewaPay'])->name('esewa');
+Route::get('/success', [EsewaController::class, 'esewaPaySuccess']);
+Route::get('/failure', [EsewaController::class, 'esewaPayFailed']);
+
+
+
+
+Route::get('/admindash', function () {
+    return view('admindash');
+});
+
+Route::get('/package', function () {
+    return view('package');
+});
 
 
 
