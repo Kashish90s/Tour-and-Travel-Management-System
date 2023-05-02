@@ -177,6 +177,7 @@
 
     <!-- packages section starts -->
 
+
     <section class="packages" id="packages">
         <h1 class="heading">
             <span>p</span>
@@ -222,6 +223,199 @@
     </section>
 
     <!-- packages section ends -->
+    <!-- review section starts -->
+    <section class="review" id="review">
+        <h1 class="heading">
+            <span>r</span>
+            <span>e</span>
+            <span>v</span>
+            <span>i</span>
+            <span>e</span>
+            <span>w</span>
+        </h1>
+
+        <div class="swiper review-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="{{ asset('images/r-1.jpg') }}" alt="" />
+                        <h3>John deo</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
+                            asperiores, tempore numquam itaque, repellendus nulla accusamus
+                            quaerat voluptates obcaecati vitae quae qui.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/r-1.jpg" alt="" />
+                        <h3>John deo</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
+                            asperiores, tempore numquam itaque, repellendus nulla accusamus
+                            quaerat voluptates obcaecati vitae quae qui.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/r-1.jpg" alt="" />
+                        <h3>John deo</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
+                            asperiores, tempore numquam itaque, repellendus nulla accusamus
+                            quaerat voluptates obcaecati vitae quae qui.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/r-1.jpg" alt="" />
+                        <h3>John deo</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
+                            asperiores, tempore numquam itaque, repellendus nulla accusamus
+                            quaerat voluptates obcaecati vitae quae qui.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- review section ends here -->
+
+
+
+    {{-- contact section  --}}
+
+    <section class="contact" id="contact">
+        <h1 class="heading">
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+        </h1>
+
+        <div class="row">
+            <div class="image">
+                <img src="{{ asset('images/c-1.jpg') }}" alt="" />
+            </div>
+
+            <form action="{{ route('contact') }}" method="POST">
+                @csrf
+
+                <div class="inputBox">
+                    @if (isset($error))
+                        {{ $error }}
+                    @else
+                        Hello
+                    @endif
+                    <input type="text" placeholder="name" name="name" pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                        title="First letter must me Capital" />
+                    <input type="email" placeholder="email" name="email" pattern="[a-zA-Z0-9]+@[a-zA-Z]+.com"
+                        title="Email should contain @ and .com" required />
+                </div>
+
+                <div class="inputBox">
+                    <input type="number" placeholder="number" name="number" />
+                    <span class="error-text" style="color:#ffa500"></span>
+                    <input type="text" placeholder="subject" name="subject" />
+                </div>
+
+                <textarea placeholder="message" name="message" cols="30" rows="10"></textarea>
+
+                <input type="submit" class="btn" value="send message" />
+            </form>
+        </div>
+    </section>
+    <!-- footer section starts here -->
+
+
+    <div class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>about us</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sint
+                    delectus, molestias a voluptatum quas rem cumque, ab sapiente ipsum
+                    optio eos vitae fuga voluptate dolor doloremque mollitia, omnis
+                    aliquid.
+                </p>
+            </div>
+
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#">home</a>
+                <a id="packages" href="#packages">packages</a>
+                <a id="review" href="#review">review</a>
+                <a id="contact" href="#contact">contact</a>
+
+
+            </div>
+
+
+            {{-- <div class="box">
+                <h3>follow us</h3>
+                <a href="#">facebook</a>
+                <a href="#">instagram</a>
+                <a href="#">linkedin</a>
+                <a href="#">contact</a>
+
+
+            </div> --}}
+
+
+
+
+
+
+        </div>
+    </div>
 
     <!-- custom js link file -->
     <script src="{{ asset('js/dashboard.js') }}"></script>

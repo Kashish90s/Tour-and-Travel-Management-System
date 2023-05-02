@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="Admin Dashboard.html">
+                    <a href="{{ route('admindashboard') }}">
                         <span class="icon">
                             <ion-icon name="logo-microsoft"></ion-icon>
                         </span>
@@ -47,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="Packages.html">
+                    <a href="{{ route('package') }}">
                         <span class='icon'>
                             <ion-icon name="cube"></ion-icon>
                         </span>

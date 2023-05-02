@@ -10,6 +10,7 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\signupVerification;
 use App\Http\Controllers\booking_controller;
 use App\Http\Controllers\EsewaController;
+use App\Http\Controllers\contactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,16 @@ Route::view('/forget', 'forgot')->name('forgot');
 Route::view('/otp', 'verifyEmail')->name('verifyEmail');
 Route::view('/signup_emailcheck', 'signup_emailVerify')->name('signup_emailcheck');
 Route::view('/admindashboard', 'admindash')->name('admindashboard');
+Route::view('/package', 'package')->name('package');
+Route::view('/systemUser', 'systemUser')->name('systemUser');
+
+
+
+
+// Route::view('/review', 'review')->name('review');
+
+
+
 
 
 
@@ -100,7 +111,16 @@ Route::controller(booking_controller::class)->group(function(){
 
 
 
+// -----------------------------CONTACT----------------------------------------------??
 
+
+
+Route::controller(contactController::class)->group(function(){
+
+    Route::post('/contact','contact')->name('contact');
+
+
+});
 
 
 
@@ -123,19 +143,25 @@ Route::get('/failure', [EsewaController::class, 'esewaPayFailed']);
 
 
 
-Route::get('/admindash', function () {
-    return view('admindash');
+Route::get('/review', function () {
+    return view('review');
 });
+// Route::get('/package', function () {
+//     return view('package');
+// });
 
-Route::get('/package', function () {
-    return view('package');
-});
+// Route::get('/customer', function () {
+//     return view('Customers');
+// });
+
+// Route::get('/systemUser', function () {
+//     return view('systemUser');
+// });
 
 
 
 
 
 // ------------------------admin dashboard-----------------------------------------------------------
-
 
 

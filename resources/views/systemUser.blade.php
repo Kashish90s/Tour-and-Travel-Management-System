@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="Admin Dashboard.html">
+                    <a href="{{ route('admindashboard') }}">
                         <span class="icon">
                             <ion-icon name="logo-microsoft"></ion-icon>
                         </span>
@@ -83,7 +83,7 @@
                 </li>
 
                 <li>
-                    <a href="System Users.html">
+                    <a href="{{ route('systemUser') }}">
                         <span class='icon'>
                             <ion-icon name="person-add"></ion-icon>
                         </span>

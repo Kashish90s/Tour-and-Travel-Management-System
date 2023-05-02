@@ -6,6 +6,9 @@ use App\Models\Order;
 use App\Models\user_account;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Mail\OtpMail;
+use Illuminate\Support\Facades\Session;
+use Mail;
 // init composer autoloader.
 require '../vendor/autoload.php';
 
@@ -33,6 +36,20 @@ class EsewaController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
+        session()->put('email', $user->email);
+        session()->put('amount', $user->$amount);
+
+        $userr['to']=$email = session()->get('email');
+
+        // $otp = mt_rand(100000, 999999);
+        $amount = $_GET['amt'];
+        Mail::send('esewaPayment', [],function($messages) use ($userr){
+            $messages->to($userr['to']);
+            $messages->subject('Your payment sucessful');
+        });
+
+
+
         // set success and failure callback urls
         $successUrl = url('/success');
         $failureUrl = url('/failure');
@@ -50,6 +67,8 @@ class EsewaController extends Controller
 
     public function esewaPaySuccess(){
 
+
+
         //do when pay success.
         $pid = $_GET['oid'];
         $refId = $_GET['refId'];
@@ -62,8 +81,7 @@ class EsewaController extends Controller
             'updated_at' => Carbon::now(),
         ]);
         if ($update_status) {
-            //send mail,....
-            //
+
             $msg = 'Success';
             $msg1 = 'Payment success. Thank you for booking trip with us.';
             return view('thankyou', compact('msg', 'msg1'));

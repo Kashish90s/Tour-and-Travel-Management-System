@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admindashboard') }}">
                         <span class="icon">
                             <ion-icon name="logo-microsoft"></ion-icon>
                         </span>
@@ -38,7 +38,7 @@
                 </li>
 
                 <li>
-                    <a href="Category.html">
+                    <a href="">
                         <span class="icon">
                             <ion-icon name="copy"></ion-icon>
                         </span>
@@ -47,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="Packages.html">
+                    <a href="{{ route('package') }}">
                         <span class='icon'>
                             <ion-icon name="cube"></ion-icon>
                         </span>
@@ -56,7 +56,7 @@
                 </li>
 
                 <li>
-                    <a href="Customers.html">
+                    <a href="">
                         <span class='icon'>
                             <ion-icon name="people"></ion-icon>
                         </span>
@@ -65,7 +65,7 @@
                 </li>
 
                 <li>
-                    <a href="Hotels.html">
+                    <a href="#">
                         <span class='icon'>
                             <ion-icon name="business"></ion-icon>
                         </span>
@@ -74,7 +74,7 @@
                 </li>
 
                 <li>
-                    <a href="Sold Packages.html">
+                    <a href="">
                         <span class='icon'>
                             <ion-icon name="bag-check"></ion-icon>
                         </span>
@@ -83,7 +83,7 @@
                 </li>
 
                 <li>
-                    <a href="System Users.html">
+                    <a href="{{ route('systemUser') }}">
                         <span class='icon'>
                             <ion-icon name="person-add"></ion-icon>
                         </span>
