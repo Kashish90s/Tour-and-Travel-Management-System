@@ -31,8 +31,8 @@
             <a href="#contact">contact</a>
         </nav>
 
-        <div class="icons">
-            <i class="fas fa-search" id="search-btn"></i>
+        <div class="icons " id="search-btn">
+            {{-- <i class="fas fa-search " ></i> --}}
 
             @if (!session()->has('userType'))
                 <i class="fas fa-user" id="login-btn"></i>
@@ -70,10 +70,10 @@
             </div>
         </div>
 
-        <form action="" class="search-bar-container">
+        {{-- <form action="" class="search-bar-container">
             <input type="search" id="search-bar" placeholder="search here..." />
             <label for="search-bar" class="fas fa-search"></label>
-        </form>
+        </form> --}}
 
     </header>
     <!-- header section ends -->
