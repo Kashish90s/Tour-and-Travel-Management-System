@@ -22,10 +22,10 @@
 
             <form action="{{ route('rating') }}" method="POST">
                 @csrf
-                <div class="inputBox">
+                {{-- <div class="inputBox">
                     <input type="text" placeholder="First name" name="fname" />
                     <input type="text" placeholder="Last name" name="lname" />
-                </div>
+                </div> --}}
 
                 <div class="inputBox">
                     <input type="number" placeholder="Give us rating" name="rate" />

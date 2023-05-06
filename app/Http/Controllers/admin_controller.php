@@ -67,7 +67,7 @@ class admin_controller extends Controller
     public function deletePackage($id) {
         $package = package::where('id', $id)->delete();
 
-        return redirect('viewPackage');
+        return redirect('user');
     }
 
 

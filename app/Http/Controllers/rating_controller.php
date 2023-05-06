@@ -18,8 +18,8 @@ class rating_controller extends Controller
 
     public function rating(Request $request){
         $userdb=new rating();
-        $userdb->fname=$request->fname;
-        $userdb->lname=$request->lname;
+        // $userdb->fname=$request->fname;
+        // $userdb->lname=$request->lname;
         $userdb->rate=$request->rate;
         $userdb->message=$request->message;
         $userdb->save();

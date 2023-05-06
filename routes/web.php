@@ -13,6 +13,7 @@ use App\Http\Controllers\EsewaController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\rating_controller;
 use App\Http\Controllers\admi_controller;
+use App\Http\Controllers\customer;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,18 +24,18 @@ use App\Http\Controllers\admi_controller;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/rating', function () {
-    return view('rating');
-});
+// Route::get('/rating', function () {
+//     return view('rating');
+// });
 
 
-Route::get('/add', function () {
-    return view('add');
-});
+// Route::get('/add', function () {
+//     return view('add');
+// });
 
-Route::get('/user', function () {
-    return view('user');
-});
+// Route::get('/user', function () {
+//     return view('user');
+// });
 
 
 
@@ -178,7 +179,6 @@ Route::controller(rating_controller::class)->group(function(){
 // ------------------------admin dashboard-----------------------------------------------------------
 
 Route::view('/admindashboard', 'admindash')->name('admindashboard');
-Route::view('/user', 'user')->name('user');
 
 Route::controller(admin_controller::class)->group(function(){
 
@@ -191,3 +191,19 @@ Route::controller(admin_controller::class)->group(function(){
 
 });
 
+
+
+
+
+
+// ---------------------customer----------------------
+Route::controller(customer::class)->group(function(){
+
+    Route::get('/user', 'viewCustomer')->name('user');
+    Route::post('/addUser', 'addUser')->name('addUser');
+    // Route::get('/viewCustomer', 'viewCustomer')->name('viewCustomer');
+    Route::get('/editUser/{id}', 'editUser')->name('editUser');
+    Route::get('/deleteCustomer/{id}', 'deleteCustomer')->name('deleteCustomer');
+    Route::post('/updateUser/{id}', 'updateUser')->name('updateUser');
+
+});

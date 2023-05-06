@@ -19,22 +19,23 @@
                 <div id="modal" class="modal">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <form method="POST" action="{{ route('') }}">
+                            <form method="POST" action="{{ route('addUser') }}">
+                                @csrf
                                 <div class="modal-header">
                                     <h4 class="modal-title">Add User</h4>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label>First Name<input type="text" name="Name" class="form-control"
+                                            <label>First Name<input type="text" name="fname" class="form-control"
                                                     required></label>
-                                            <label>Last Name<input type="text" name="Name" class="form-control"
+                                            <label>Last Name<input type="text" name="lname" class="form-control"
                                                     required></label>
-                                            <label>Contact Number<input type="text" name="Name"
+                                            <label>Contact Number<input type="text" name="Contact_Number"
                                                     class="form-control" required></label>
-                                            <label>Address<input type="text" name="Name" class="form-control"
+                                            <label>Address<input type="text" name="address" class="form-control"
                                                     required></label>
-                                            <label>Email<input type="text" name="Name" class="form-control"
+                                            <label>Email<input type="text" name="email" class="form-control"
                                                     required></label>
-                                            <label>Password<input type="text" name="Name" class="form-control"
+                                            <label>Password<input type="text" name="password" class="form-control"
                                                     required></label>
                                         </div>
                                     </div>
@@ -63,35 +64,37 @@
                             <td>Address</td>
                             <td>Email</td>
                             <td>Password</td>
-                            <td>Otp</td>
+                            {{-- <td>Otp</td> --}}
                             <!-- <td>img_path</td> -->
-                            <td>Action</td>
+                            {{-- <td>Action</td> --}}
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Yuvraj</td>
-                            <td>Chaudhary</td>
-                            <td>981938101</td>
-                            <td>Kathmandu</td>
-                            <td>yuvraj123@gmail.com</td>
-                            <td>2321312</td>
-                            <td>102323</td>
-                            <!-- <td>
+
+                        @foreach ($data as $i)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $i['fname'] }}</td>
+                                <td>{{ $i['lname'] }}</td>
+                                <td>{{ $i['Contact_Number'] }}</td>
+                                <td>{{ $i['address'] }}</td>
+                                <td>{{ $i['email'] }}</td>
+                                {{-- <td>2321312</td> --}}
+                                {{-- <td>102323</td> --}}
+                                <!-- <td>
                                 <form action="">
                                     <input type="file" id="myFile" name="filename">
                                 </form>
                             </td> -->
-                            <td>
-                                <span class="edit">
-                                    <ion-icon name="cloud-upload-outline"></ion-icon>Edit
-                                </span>
-                                <span class="delete">
-                                    <ion-icon name="trash-outline"></ion-icon>Delete
-                                </span>
-                                {{-- <div class="Cancel" id="cancel" >
+                                <td>
+                                    <a class="edit" href="{{ route('editUser', ['id' => $i['id']]) }}">
+                                        <ion-icon name="cloud-upload-outline"></ion-icon>Edit
+                                    </a>
+                                    <a class="delete" href="{{ route('deleteCustomer', ['id' => $i['id']]) }}">
+                                        <ion-icon name="trash-outline"></ion-icon>Delete
+                                    </a>
+                                    {{-- <div class="Cancel" id="cancel" >
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <form>
@@ -106,8 +109,9 @@
                                             </form>
                                         </div>
                                     </div> --}}
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -115,6 +119,7 @@
     </div>
 
     <script src="{{ asset('Admin/Add.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
