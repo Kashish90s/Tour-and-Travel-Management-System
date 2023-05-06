@@ -11,6 +11,8 @@ use App\Http\Controllers\signupVerification;
 use App\Http\Controllers\booking_controller;
 use App\Http\Controllers\EsewaController;
 use App\Http\Controllers\contactController;
+use App\Http\Controllers\rating_controller;
+use App\Http\Controllers\admi_controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +23,19 @@ use App\Http\Controllers\contactController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/rating', function () {
+    return view('rating');
+});
+
+
+Route::get('/add', function () {
+    return view('add');
+});
+
+Route::get('/user', function () {
+    return view('user');
+});
+
 
 
 // !!-------------------------redirect route--------------------------------------------------------------------!!
@@ -29,9 +44,9 @@ Route::view('/signupp', 'signup')->name('signup');
 Route::view('/forget', 'forgot')->name('forgot');
 Route::view('/otp', 'verifyEmail')->name('verifyEmail');
 Route::view('/signup_emailcheck', 'signup_emailVerify')->name('signup_emailcheck');
-Route::view('/admindashboard', 'admindash')->name('admindashboard');
-Route::view('/package', 'package')->name('package');
-Route::view('/systemUser', 'systemUser')->name('systemUser');
+
+// Route::view('/rate', 'rating')->name('rate');
+Route::view('/', 'dashboard');
 
 
 
@@ -104,8 +119,8 @@ Route::get('/checkOtp', function () {
 Route::controller(booking_controller::class)->group(function(){
 
     Route::post('/destination','destination')->name('destination');
-    Route::get('/', 'showPackages')->name('/');
     ROute::get('/booking/{id}', 'showBookingPage')->name('showBookingPage');
+    // Route::get('/', 'showPackages')->name('/');
 
 });
 
@@ -146,17 +161,15 @@ Route::get('/failure', [EsewaController::class, 'esewaPayFailed']);
 Route::get('/review', function () {
     return view('review');
 });
-// Route::get('/package', function () {
-//     return view('package');
-// });
 
-// Route::get('/customer', function () {
-//     return view('Customers');
-// });
+// -----------------------------------Rating----------------------------------------
 
-// Route::get('/systemUser', function () {
-//     return view('systemUser');
-// });
+Route::controller(rating_controller::class)->group(function(){
+
+    Route::post('/rating','rating')->name('rating');
+    // Route::get('/', 'showrate')->name('/');
+
+});
 
 
 
@@ -164,4 +177,17 @@ Route::get('/review', function () {
 
 // ------------------------admin dashboard-----------------------------------------------------------
 
+Route::view('/admindashboard', 'admindash')->name('admindashboard');
+Route::view('/user', 'user')->name('user');
+
+Route::controller(admin_controller::class)->group(function(){
+
+    Route::get('/viewPackage', 'viewPackages')->name('viewPackage');
+    Route::post('/addPackages','addPackages')->name('addPackages');
+    Route::get('/editPackage/{id}', 'editPackage')->name('editPackage');
+    Route::get('/deletePackage/{id}', 'deletePackage')->name('deletePackage');
+    Route::post('/updatePackage/{id}', 'updatePackage')->name('updatePackage');
+
+
+});
 

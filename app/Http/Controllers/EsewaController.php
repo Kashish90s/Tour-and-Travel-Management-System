@@ -37,16 +37,17 @@ class EsewaController extends Controller
         ]);
 
         session()->put('email', $user->email);
-        session()->put('amount', $user->$amount);
+        // session()->put('amount', $user->$amount);
 
         $userr['to']=$email = session()->get('email');
+        // dd($user);
 
-        // $otp = mt_rand(100000, 999999);
+
         // $amount = $_GET['amt'];
-        // Mail::send('esewaPayment', [],function($messages) use ($userr){
-        //     $messages->to($userr['to']);
-        //     $messages->subject('Your payment sucessful');
-        // });
+        Mail::send('esewaPayment', [],function($messages) use ($userr){
+            $messages->to($userr['to']);
+            $messages->subject('Your payment sucessful');
+        });
 
 
 

@@ -15,7 +15,6 @@ class user_controller extends Controller
         $file->move(public_path().'/images/userProfilePicture', $filename);
 
         $user = user_account::where('id', session('id'))->first();
-
         $user->img_path = 'images/userProfilePicture/'.$filename;
 
         $user->save();

@@ -173,6 +173,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding:  0 10px;
+    position: relative;
 }
 
 .toggle {
@@ -237,69 +238,288 @@ body {
     cursor: pointer;
 }
 
-.user {
-    position: relative;
-    /* width: 40px;
-    weight: 40px; */
-    padding-top: -50px;
-    padding-bottom: -50px;
+.topbar img {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    overflow: hidden;
     cursor: pointer;
+    margin-left: 30px;
 }
 
-.user img {
+.topbar .wrap {
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.topbar .wrap.active {
+    max-height: 400px;
+}
+
+.topbar .menu {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+
+.topbar .info {
+    display: flex;
+    align-items: center;
+}
+
+.topbar .link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #535353;
+    margin: 12px 0;
+}
+
+.topbar .link p {
+    width: 100
+}
+
+.topbar .link .name{
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.topbar .link span {
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.topbar .link:hover span {
+    transform: translateX(5px);
+}
+
+.topbar .link:hover p {
+    font-weight: 600;
+}
+  
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 4fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
+    width: 100%;
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 100;
+    font-size: 1.5rem;
+    color: var(--blue);
+}
+
+.cardBox .card .cardName {
+    color: var(--black2);
+    font-size: 1.5rem;
+    margin-top: 2px;
+}
+
+.cardBox .card .iconBox {
+    font-size: 2rem;
+    color: var(--black2);
+}
+
+.cardBox .card:hover {
+    background: var(--blue);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBox {
+    color: var(--white)
+}
+
+.details {
+    position: relative;
+    width: 150%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
+.details .recentOrders {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
+    border-radius: 20px;
+}
+
+.details .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2 {
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.cardHeader .btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+
+.details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead td {
+    font-weight: 600;
+}
+
+.details .recentOrders table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .recentOrders table tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details .recentOrders table tr td {
+    padding: 10px;
+}
+
+.details .recentOrders table tr td:last-child {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:last-child(2) {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:last-child(3) {
+    text-align: center;
+}
+
+.status.received {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.pending {
+    padding: 2px 4px;
+    background: #e9b10a;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.cancelled {
+    padding: 2px 4px;
+    background: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.inProgress {
+    padding: 2px 4px;
+    background: #1795ce;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.recentCustomers {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
+    border-radius: 20px;
+    width: 80%;
+}
+
+.recentCustomers .imgBox {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.recentCustomers .imgBox img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;    
 }
 
-.Customers {
-    text-align: right;
-    padding-right: 10px;
-}
-
-.table h1 {
-    position: relative;
-    padding-top: 30px;
-    padding-left: 30px;
-}
-
-.Customers .btn {
-    position: relative;
-    padding: 10px 10px;
+.recentCustomers table tr:hover {
     background: var(--blue);
-    text-decoration: none;
     color: var(--white);
-    border-radius: 6px;
-
 }
 
-table{
-    border: 2px solid var(--black1);
-    border-collapse: collapse;
-    width: 100%;
-    margin: 30px;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
-    text-align: justify;
+.recentCustomers table tr td {
+    padding: 12px 10px;
+}
+
+.recentCustomers table tr td h4 {
+    font-size: 16px;
     font-weight: 500;
+    line-height: 1.2rem;
 }
 
-table tr {
-    border: 1px solid var(--black1);
-    padding: 10px 10x;
-    height: 50px;
+.recentCustomers table tr td h4 span {
+    font-size: 14px;
+    color: var(--black2);
 }
 
-table td {
-    border: 1px solid var(--black1);;
-    padding: 10px 10px;
-    height: 50px;
+.recentCustomers table tr:hover td h4 span {
+    color: var(--white);
 }
-
 
 @media (max-width: 991px) {
     .navigation {

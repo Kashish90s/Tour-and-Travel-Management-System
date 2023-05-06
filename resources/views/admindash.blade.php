@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="{{ asset('css/Admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('Admin/Admin.css') }}">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admindashboard') }}">
+                    <a href="#">
                         <span class="icon">
                             <ion-icon name="logo-microsoft"></ion-icon>
                         </span>
@@ -37,17 +37,17 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="">
+                {{-- <li>
+                    <a href="#">
                         <span class="icon">
                             <ion-icon name="copy"></ion-icon>
                         </span>
                         <span class="title">Category</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li>
-                    <a href="{{ route('package') }}">
+                    <a href="{{ route('viewPackage') }}">
                         <span class='icon'>
                             <ion-icon name="cube"></ion-icon>
                         </span>
@@ -56,7 +56,7 @@
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="{{ route('user') }}">
                         <span class='icon'>
                             <ion-icon name="people"></ion-icon>
                         </span>
@@ -64,8 +64,8 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="#">
+                {{-- <li>
+                    <a href="#}">
                         <span class='icon'>
                             <ion-icon name="business"></ion-icon>
                         </span>
@@ -74,7 +74,7 @@
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="#">
                         <span class='icon'>
                             <ion-icon name="bag-check"></ion-icon>
                         </span>
@@ -83,13 +83,13 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('systemUser') }}">
+                    <a href="#">
                         <span class='icon'>
                             <ion-icon name="person-add"></ion-icon>
                         </span>
                         <span class="title">System Users</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
@@ -102,150 +102,162 @@
                 </span>
             </div>
 
-            <div class="search">
+            {{-- <div class="search">
                 <label>
                     <ion-icon name="search-outline"></ion-icon>
                     <input type="text" placeholder="Search...">
                 </label>
-            </div>
-            <div class="notification">
+            </div> --}}
+            {{-- <div class="notification">
                 <ion-icon name="notifications-outline"></ion-icon>
                 <span class="badge">5</span>
-            </div>
-            <div class="message">
+            </div> --}}
+            {{-- <div class="message">
                 <ion-icon name="mail-unread-outline"></ion-icon>
                 <span class="badge">8</span>
-            </div>
+            </div> --}}
 
-            <div class="user">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                    class="user-pic" alt="">
-                <div class="sub-menu-wrap">
-                    <div class="sub-menu">
-                        <div class="Admin-info">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <ion-icon name="person-circle-outline"></ion-icon>
-                                        <span class="title">Profile</span>
-                                    </a>
-                                </li>
+            {{-- <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                alt=""> --}}
+            <div class="wrap" id="subMenu">
+                <div class="menu">
+                    <div class="info">
+                        <a href="#" class="link" onclick="goToProfileSettings()">
+                            <ion-icon name="person-circle-outline" class="name">
 
-                                <li>
-                                    <a href="#">
-                                        <ion-icon name="settings-outline"></ion-icon>
-                                        <span class='title'>Settings</span>
-                                    </a>
-                                </li>
+                            </ion-icon>
+                            <p>Profile</p>
+                            <span>></span>
+                        </a>
 
-                                <li>
-                                    <a href="#">
-                                        <ion-icon name="exit-outline"></ion-icon>
-                                        <span class='title'>Logout</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <a href="#" class="link">
+                            <ion-icon name="settings-outline" class="name">
+
+                            </ion-icon>
+                            <p>Settings</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="#" class="link" onclick="showLogoutConfirmation()">
+                            <ion-icon name="exit-outline" class="name">
+
+                            </ion-icon>
+                            <p>Logout</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+                <div id="logout-confirmation" class="dialog-box">
+                    <p>Are you sure you want to logout?</p>
+
+                    <div class="button-container">
+                        <button class="btn-confirm" onclick="logout()">Yes</button>
+                        <button class="btn-cancel" onclick="hideLogoutConfirmation()">
+                            Cancel
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="cardBox">
-            <div class="card">
-                <div>
-                    <div class="numbers">1000</div>
-                    <div class="cardName">Daily Views</div>
+        <div class="container">
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">1000</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
                 </div>
-                <div class="iconBox">
-                    <ion-icon name="eye-outline"></ion-icon>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <div class="numbers">50</div>
-                    <div class="cardName">Sales</div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">50</div>
+                        <div class="cardName">Sales</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="bar-chart-outline"></ion-icon>
+                    </div>
                 </div>
-                <div class="iconBox">
-                    <ion-icon name="bar-chart-outline"></ion-icon>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <div class="numbers">100</div>
-                    <div class="cardName">Comments</div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">100</div>
+                        <div class="cardName">Comments</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                    </div>
                 </div>
-                <div class="iconBox">
-                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <div class="numbers">500</div>
-                    <div class="cardName">Earnings</div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">500</div>
+                        <div class="cardName">Earnings</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="logo-bitcoin"></ion-icon>
+                    </div>
                 </div>
-                <div class="iconBox">
-                    <ion-icon name="logo-bitcoin"></ion-icon>
-                </div>
-            </div>
 
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>Recent Bookings</h2>
-                        <a href="#" class="btn">View All</a>
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Recent Bookings</h2>
+                            <a href="#" class="btn">View All</a>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Price</td>
+                                    <td>Payment</td>
+                                    <td>Status</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Mountain trek</td>
+                                    <td>$500</td>
+                                    <td>Paid</td>
+                                    <td><span class="status received">Payment Successful</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Room Booking</td>
+                                    <td>$50</td>
+                                    <td>Verifying</td>
+                                    <td><span class="status pending">Booked</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Gosaikunda Hike</td>
+                                    <td>$30</td>
+                                    <td>Cancelled</td>
+                                    <td><span class="status cancelled">Refund</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Pokhara Tour</td>
+                                    <td>$40</td>
+                                    <td>Cancelled</td>
+                                    <td><span class="status cancelled">Refund</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Manakamana Package</td>
+                                    <td>$90</td>
+                                    <td>Due</td>
+                                    <td><span class="status inProgress">In Progress</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Mountain trek</td>
-                                <td>$500</td>
-                                <td>Paid</td>
-                                <td><span class="status received">Payment Successful</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Room Booking</td>
-                                <td>$50</td>
-                                <td>Verifying</td>
-                                <td><span class="status pending">Booked</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Gosaikunda Hike</td>
-                                <td>$30</td>
-                                <td>Cancelled</td>
-                                <td><span class="status cancelled">Refund</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Pokhara Tour</td>
-                                <td>$40</td>
-                                <td>Cancelled</td>
-                                <td><span class="status cancelled">Refund</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Manakamana Package</td>
-                                <td>$90</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
                     <div class="recentCustomers">
                         <div class="cardHeader">
                             <h2>Recent Customers</h2>
@@ -253,54 +265,54 @@
 
                         <table>
                             <tr>
-                                <td width="60px">
+                                {{-- <td width="60px">
                                     <div class="imgBox"><img src="yuvraj.jpg" alt=""></div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <h4>Yuvraj <br><span>Kathmandu</span></h4>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td width="60px">
+                                {{-- <td width="60px">
                                     <div class="imgBox"><img src="biraj.jpg" alt=""></div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <h4>Biraj <br><span>Kathmandu</span></h4>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td width="60px">
+                                {{-- <td width="60px">
                                     <div class="imgBox"><img src="kashish.jpg" alt=""></div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <h4>Kashish <br><span>Kathmandu</span></h4>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td width="60px">
+                                {{-- <td width="60px">
                                     <div class="imgBox"><img src="jyoti.jpg" alt=""></div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <h4>Jyoti <br><span>Kathmandu</span></h4>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td width="60px">
+                                {{-- <td width="60px">
                                     <div class="imgBox"><img src="isha.jpg" alt=""></div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <h4>Isha <br><span>Kathmandu</span></h4>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td width="60px">
+                                {{-- <td width="60px">
                                     <div class="imgBox"><img src="asif.jpg" alt=""></div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <h4>Asif <br><span>Kathmandu</span></h4>
                                 </td>
@@ -312,7 +324,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('js/Admin.js') }}"></script>
+    <script src="{{ asset('Admin/Admin.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

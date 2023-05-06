@@ -6,12 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\contact;
 class contactController extends Controller
 {
-    //
-
     public function contact(Request $request){
-        if (strlen($request->number) != 10) {
-           return view('dashboard')->with(['error' => 'number must be 10']);
-        }
+
+        $validated = $request->validate([
+            'number'=>['max:10', 'min:10'] //number chai ota form ko name hai
+        ]);
 
         $userdb=new contact();
         $userdb->name=$request->name;
@@ -20,8 +19,7 @@ class contactController extends Controller
         $userdb->subject=$request->subject;
         $userdb->message=$request->message;
         $userdb->save();
-        // dd($userdb);
-        return redirect('/');
 
+        return redirect('/');
     }
 }

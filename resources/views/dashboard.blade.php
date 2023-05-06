@@ -190,7 +190,12 @@
             <span>s</span>
         </h1>
 
-        @foreach ($info as $i)
+        @php
+            $package = App\Http\Controllers\booking_controller::showPackages();
+            $rate = App\Http\Controllers\rating_controller::showRate();
+        @endphp
+
+        @foreach ($package as $i)
             <div class="box-container">
                 <div class="box">
                     <img src="{{ asset($i['picture_link']) }}" alt="" />
@@ -234,92 +239,90 @@
             <span>w</span>
         </h1>
 
-        <div class="swiper review-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="box">
-                        <img src="{{ asset('images/r-1.jpg') }}" alt="" />
-                        <h3>John deo</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
-                            asperiores, tempore numquam itaque, repellendus nulla accusamus
-                            quaerat voluptates obcaecati vitae quae qui.
-                        </p>
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="box">
-                        <img src="images/r-1.jpg" alt="" />
-                        <h3>John deo</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
-                            asperiores, tempore numquam itaque, repellendus nulla accusamus
-                            quaerat voluptates obcaecati vitae quae qui.
-                        </p>
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="box">
-                        <img src="images/r-1.jpg" alt="" />
-                        <h3>John deo</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
-                            asperiores, tempore numquam itaque, repellendus nulla accusamus
-                            quaerat voluptates obcaecati vitae quae qui.
-                        </p>
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="box">
-                        <img src="images/r-1.jpg" alt="" />
-                        <h3>John deo</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
-                            asperiores, tempore numquam itaque, repellendus nulla accusamus
-                            quaerat voluptates obcaecati vitae quae qui.
-                        </p>
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+        @foreach ($rate as $r)
+            <div class="swiper review-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="box">
+                            <img src="{{ asset($r['img_path']) }}" alt="" />
+                            <h3>{{ $r['fname'] . ' ' . $r['lname'] }}</h3>
+                            <p>
+                                {{ $r['message'] }}
+                            </p>
+                            <div class="stars">
+                                @for ($j = 0; $j < $r['rate']; $j++)
+                                    <i class="fas fa-star"></i>
+                                @endfor
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        @endforeach
+
+        {{-- <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/r-1.jpg" alt="" />
+                        <h3>John deo</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
+                            asperiores, tempore numquam itaque, repellendus nulla accusamus
+                            quaerat voluptates obcaecati vitae quae qui.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/r-1.jpg" alt="" />
+                        <h3>John deo</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
+                            asperiores, tempore numquam itaque, repellendus nulla accusamus
+                            quaerat voluptates obcaecati vitae quae qui.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/r-1.jpg" alt="" />
+                        <h3>John deo</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Accusantium quos eius deserunt aut quasi magnam possimus, atque
+                            asperiores, tempore numquam itaque, repellendus nulla accusamus
+                            quaerat voluptates obcaecati vitae quae qui.
+                        </p>
+
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div> --}}
+        </div>
         </div>
     </section>
 
@@ -347,13 +350,12 @@
 
             <form action="{{ route('contact') }}" method="POST">
                 @csrf
-
+                @error('number')
+                    <div class="text-danger">
+                        Phone number must be 10 digit...
+                    </div>
+                @enderror
                 <div class="inputBox">
-                    @if (isset($error))
-                        {{ $error }}
-                    @else
-                        Hello
-                    @endif
                     <input type="text" placeholder="name" name="name" pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                         title="First letter must me Capital" />
                     <input type="email" placeholder="email" name="email" pattern="[a-zA-Z0-9]+@[a-zA-Z]+.com"
@@ -394,25 +396,17 @@
                 <a id="packages" href="#packages">packages</a>
                 <a id="review" href="#review">review</a>
                 <a id="contact" href="#contact">contact</a>
-
-
             </div>
 
+            <div class="box">
+                <h3>Rate us</h3>
+                <a href="{{ route('rating') }}">Review</a>
 
-            {{-- <div class="box">
-                <h3>follow us</h3>
-                <a href="#">facebook</a>
+                {{-- <a href="#">facebook</a>
                 <a href="#">instagram</a>
                 <a href="#">linkedin</a>
-                <a href="#">contact</a>
-
-
-            </div> --}}
-
-
-
-
-
+                <a href="#">contact</a> --}}
+            </div>
 
         </div>
     </div>
