@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\admin_user;
 use App\Models\package;
+use App\Models\booking_user;
+use App\Models\Order;
 use Illuminate\Support\Facades\File;
 class admin_controller extends Controller
 {
@@ -67,8 +69,15 @@ class admin_controller extends Controller
     public function deletePackage($id) {
         $package = package::where('id', $id)->delete();
 
-        return redirect('user');
+        return redirect('viewPackage');
     }
+
+    public function recentBooking(){
+        $package = booking_user::all();
+        // $package = Order::all();
+        return view('admindash', ['data' => $package]);
+    }
+
 
 
 

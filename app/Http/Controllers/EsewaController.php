@@ -37,13 +37,8 @@ class EsewaController extends Controller
         ]);
 
         session()->put('email', $user->email);
-        // session()->put('amount', $user->$amount);
-
         $userr['to']=$email = session()->get('email');
-        // dd($user);
 
-
-        // $amount = $_GET['amt'];
         Mail::send('esewaPayment', [],function($messages) use ($userr){
             $messages->to($userr['to']);
             $messages->subject('Your payment sucessful');
@@ -87,6 +82,18 @@ class EsewaController extends Controller
             $msg1 = 'Payment success. Thank you for booking trip with us.';
             return view('thankyou', compact('msg', 'msg1'));
         }
+
+        // session()->put('email', $user->email);
+        // $order = Order::where('email',$email)->first()
+        // $userr['to']=Order::where('email',$email)->first();
+
+
+        // Mail::send('esewaPayment', [],function($messages) use ($userr){
+        //     $messages->to($userr['to']);
+        //     $messages->subject('Your payment sucessful');
+        // });
+
+
     }
 
     public function esewaPayFailed()

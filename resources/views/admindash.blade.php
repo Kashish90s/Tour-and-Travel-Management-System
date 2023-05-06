@@ -206,28 +206,32 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Recent Bookings</h2>
-                            <a href="#" class="btn">View All</a>
+                            {{-- <a href="#" class="btn">View All</a> --}}
                         </div>
 
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Name</td>
+                                    <td>Package Name</td>
+                                    <td>Number of guest</td>
+
                                     <td>Price</td>
-                                    <td>Payment</td>
+                                    {{-- <td>Payment</td> --}}
                                     <td>Status</td>
                                 </tr>
                             </thead>
-
                             <tbody>
-                                <tr>
-                                    <td>Mountain trek</td>
-                                    <td>$500</td>
-                                    <td>Paid</td>
-                                    <td><span class="status received">Payment Successful</span></td>
-                                </tr>
+                                @foreach ($data as $i)
+                                    <tr>
+                                        <td>{{ $i['destination'] }}</td>
+                                        <td>{{ $i['no_guest'] }}</td>
+                                        {{-- <td>Paid</td> --}}
+                                        <td><span class="status received">Payment Successful</span></td>
+                                    </tr>
+                                @endforeach
 
-                                <tr>
+
+                                {{-- <tr>
                                     <td>Room Booking</td>
                                     <td>$50</td>
                                     <td>Verifying</td>
@@ -253,7 +257,7 @@
                                     <td>$90</td>
                                     <td>Due</td>
                                     <td><span class="status inProgress">In Progress</span></td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -262,62 +266,75 @@
                         <div class="cardHeader">
                             <h2>Recent Customers</h2>
                         </div>
+                        {{-- @php
+                            $user = App\Http\Controllers\user_controller::showPackages();
 
-                        <table>
-                            <tr>
-                                {{-- <td width="60px">
-                                    <div class="imgBox"><img src="yuvraj.jpg" alt=""></div>
-                                </td> --}}
-                                <td>
-                                    <h4>Yuvraj <br><span>Kathmandu</span></h4>
-                                </td>
-                            </tr>
+                        @endphp --}}
 
-                            <tr>
-                                {{-- <td width="60px">
-                                    <div class="imgBox"><img src="biraj.jpg" alt=""></div>
-                                </td> --}}
-                                <td>
-                                    <h4>Biraj <br><span>Kathmandu</span></h4>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                {{-- <td width="60px">
-                                    <div class="imgBox"><img src="kashish.jpg" alt=""></div>
-                                </td> --}}
-                                <td>
-                                    <h4>Kashish <br><span>Kathmandu</span></h4>
-                                </td>
-                            </tr>
+                        @foreach ($data as $i)
+                            <table>
+                                <tr>
 
-                            <tr>
-                                {{-- <td width="60px">
-                                    <div class="imgBox"><img src="jyoti.jpg" alt=""></div>
-                                </td> --}}
-                                <td>
-                                    <h4>Jyoti <br><span>Kathmandu</span></h4>
-                                </td>
-                            </tr>
+                                    <td width="60px">
+                                        <div class="imgBox"><img src="{{ asset($i['img_path']) }}" alt=""></div>
+                                    </td>
 
-                            <tr>
-                                {{-- <td width="60px">
-                                    <div class="imgBox"><img src="isha.jpg" alt=""></div>
-                                </td> --}}
-                                <td>
-                                    <h4>Isha <br><span>Kathmandu</span></h4>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                {{-- <td width="60px">
-                                    <div class="imgBox"><img src="asif.jpg" alt=""></div>
-                                </td> --}}
-                                <td>
-                                    <h4>Asif <br><span>Kathmandu</span></h4>
-                                </td>
-                            </tr>
-                        </table>
+
+                                    <td>
+                                        <h4>{{ $i['fname'] . ' ' . $i['lname'] }} <br><span>{{ $i['address'] }}</span>
+                                        </h4>
+                                    </td>
+                                </tr>
+                            </table>
+                        @endforeach
+
+                        {{-- <tr>
+                                    <td width="60px">
+                                        <div class="imgBox"><img src="biraj.jpg" alt=""></div>
+                                    </td>
+                                    <td>
+                                        <h4>Biraj <br><span>Kathmandu</span></h4>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="60px">
+                                        <div class="imgBox"><img src="kashish.jpg" alt=""></div>
+                                    </td>
+                                    <td>
+                                        <h4>Kashish <br><span>Kathmandu</span></h4>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="60px">
+                                        <div class="imgBox"><img src="jyoti.jpg" alt=""></div>
+                                    </td>
+                                    <td>
+                                        <h4>Jyoti <br><span>Kathmandu</span></h4>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="60px">
+                                        <div class="imgBox"><img src="isha.jpg" alt=""></div>
+                                    </td>
+                                    <td>
+                                        <h4>Isha <br><span>Kathmandu</span></h4>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="60px">
+                                        <div class="imgBox"><img src="asif.jpg" alt=""></div>
+                                    </td>
+                                    <td>
+                                        <h4>Asif <br><span>Kathmandu</span></h4>
+                                    </td>
+                                </tr> --}}
+                        {{-- </table> --}}
                     </div>
                 </div>
             </div>

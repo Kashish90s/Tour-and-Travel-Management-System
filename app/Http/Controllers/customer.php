@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\user_account;
+use App\Models\booking_user;
 class customer extends Controller
 {
     //
@@ -61,4 +62,19 @@ class customer extends Controller
 
         return redirect('user');
     }
+
+
+    public function adminPannel(){
+        $user =user_account::all();
+        // dd(user);
+        return view('admindash', ['data' => $user]);
+
+    }
+
+    public function recentBooking(){
+        $package = booking_user::all();
+        // $package = Order::all();
+        return view('admindash', ['data' => $package]);
+    }
+
 }

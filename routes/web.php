@@ -187,6 +187,7 @@ Route::controller(admin_controller::class)->group(function(){
     Route::get('/editPackage/{id}', 'editPackage')->name('editPackage');
     Route::get('/deletePackage/{id}', 'deletePackage')->name('deletePackage');
     Route::post('/updatePackage/{id}', 'updatePackage')->name('updatePackage');
+    // Route::get('/admindashboard', 'recentBooking')->name('admindashboard');
 
 
 });
@@ -205,5 +206,8 @@ Route::controller(customer::class)->group(function(){
     Route::get('/editUser/{id}', 'editUser')->name('editUser');
     Route::get('/deleteCustomer/{id}', 'deleteCustomer')->name('deleteCustomer');
     Route::post('/updateUser/{id}', 'updateUser')->name('updateUser');
+
+    Route::get('/admindashboard', 'adminPannel')->name('admindashboard');
+
 
 });
