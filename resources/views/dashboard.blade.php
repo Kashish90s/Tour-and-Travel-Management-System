@@ -378,7 +378,7 @@
 
 
     <div class="footer">
-        <div class="box-container">
+        <div class="box-container" style="padding-left: 8px">
             <div class="box">
                 <h3>about us</h3>
                 <p>
@@ -402,10 +402,12 @@
                 <h3>Rate us</h3>
                 <a href="{{ route('rating') }}">Review</a>
 
-                {{-- <a href="#">facebook</a>
-                <a href="#">instagram</a>
-                <a href="#">linkedin</a>
-                <a href="#">contact</a> --}}
+            </div>
+
+            <div class="box">
+                <h3>Term and Condition</h3>
+                <a href="{{ route('Terms-and-condition') }}">Term and condition</a>
+
             </div>
 
         </div>

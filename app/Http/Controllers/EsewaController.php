@@ -41,7 +41,7 @@ class EsewaController extends Controller
 
         Mail::send('esewaPayment', [],function($messages) use ($userr){
             $messages->to($userr['to']);
-            $messages->subject('Your payment sucessful');
+            $messages->subject('Booking Confirmation');
         });
 
 

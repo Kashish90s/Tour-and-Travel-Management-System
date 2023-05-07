@@ -25,12 +25,21 @@
     </form>
 
 
+    <p>Dear Customer</p>
+    {{-- <p>Hi there,</p> --}}
+    <p>Your payment is Sucessful <br>
 
-    <p>Hi there,</p>
+        Thank you for booking a package with GhumPhir</p>
 
-    <p>Your payment is Sucessful: {{ session('amount') }}</p>
+    <p>Best regards,<br>
+        <b> Yuvraj Tharu <br>
+            GhumPhir Admin </b>
+    </p>
 
-    <p>Thank you for using our app!</p>
+
+
+
+
 
 
 

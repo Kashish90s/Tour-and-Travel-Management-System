@@ -45,6 +45,7 @@ Route::view('/signupp', 'signup')->name('signup');
 Route::view('/forget', 'forgot')->name('forgot');
 Route::view('/otp', 'verifyEmail')->name('verifyEmail');
 Route::view('/signup_emailcheck', 'signup_emailVerify')->name('signup_emailcheck');
+Route::view('/Terms-and-condition', 'Terms-and-condition')->name('Terms-and-condition');
 
 // Route::view('/rate', 'rating')->name('rate');
 Route::view('/', 'dashboard');

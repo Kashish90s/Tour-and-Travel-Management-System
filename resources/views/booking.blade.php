@@ -38,7 +38,7 @@
                 @csrf
                 <div class="inputBox">
                     <h3>how many</h3>
-                    <input type="number" name="guest" placeholder="number of guests" />
+                    <input type="number" name="guest" placeholder="number of guests" min="1" max="7" />
                 </div>
                 <div class="inputBox">
                     <h3>arrivals</h3>
