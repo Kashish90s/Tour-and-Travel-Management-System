@@ -14,6 +14,12 @@ class booking_controller extends Controller
         return $package;
     }
 
+    public static function totalSales() {
+        $package = booking_user::all()->count();
+
+        return $package;
+    }
+
     public function showBookingPage($id) {
         if(!session('id')){
             return redirect('/');;
@@ -25,16 +31,16 @@ class booking_controller extends Controller
     }
 
     public function destination(Request $request){
-        $validated = $request->validate([
-            'guest' => ['min:1'] //number chai ota form ko name hai
-        ]);
+        // $validated = $request->validate([
+        //     'guest' => ['min:1'] //number chai ota form ko name hai
+        // ]);
 
         $userdb=new booking_user();
         $userdb->destination=$request->destination;
         $userdb->no_guest=$request->guest;
         $userdb->arrival=$request->arrival;
         $userdb->leaving=$request->leaving;
-
+            // dd($userdb);
         $userdb->save();
 
         return redirect('add-blog-post-form')->with('status', 'Blog Post Form Data Has Been inserted');

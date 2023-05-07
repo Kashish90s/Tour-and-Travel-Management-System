@@ -36,18 +36,20 @@
 
             <form action="{{ route('esewa') }}" method="POST" name="add-blog-post-form">
                 @csrf
+                <input type="text" value="{{ $info['destination'] }}" name="destination" hidden>
                 <div class="inputBox">
                     <h3>how many</h3>
-                    <input type="number" name="guest" placeholder="number of guests" min="1" max="7" />
+                    <input type="number" name="guest" placeholder="number of guests" min="1"
+                        max="7"onkeydown="return false" />
                 </div>
                 <div class="inputBox">
                     <h3>arrivals</h3>
-                    <input type="date" name="arrival" />
+                    <input type="date" id="date-input" name="arrival" />
                 </div>
 
                 <div class="inputBox">
                     <h3>leaving</h3>
-                    <input type="date" name="leaving" />
+                    <input type="date" id="date-in" name="leaving" />
                 </div>
 
                 <input type="text" name="price" value="{{ $info['pricing'] }}" hidden>
@@ -63,6 +65,11 @@
 </body>
 
 <script>
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("date-input").setAttribute("min", today);
+    const nowday = new Date().toISOString().split('T')[0];
+    document.getElementById("date-in").setAttribute("min", today);
+
     function showMsg() {
         var blur = document.getElementById('blur');
         blur.classList.toggle('active');

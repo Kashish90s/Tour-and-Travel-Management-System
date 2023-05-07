@@ -22,6 +22,7 @@ return new class extends Migration
         Schema::create('destination_booking', function (Blueprint $table) {
 
             $table->id();
+            $table->String('guest_id');
             $table->String('destination');
             $table->String('no_guest');
             $table->date('arrival');

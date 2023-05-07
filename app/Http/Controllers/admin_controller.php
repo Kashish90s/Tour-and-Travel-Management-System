@@ -10,6 +10,12 @@ use App\Models\Order;
 use Illuminate\Support\Facades\File;
 class admin_controller extends Controller
 {
+    public static function totalPackage() {
+        $package = package::all()->count();
+
+        return $package;
+    }
+
     public function viewPackages() {
         $package = package::all();
 
@@ -72,11 +78,13 @@ class admin_controller extends Controller
         return redirect('viewPackage');
     }
 
-    public function recentBooking(){
+    public static function recentBooking(){
         $package = booking_user::all();
-        // $package = Order::all();
-        return view('admindash', ['data' => $package]);
+
+        return $package;
     }
+
+
 
 
 

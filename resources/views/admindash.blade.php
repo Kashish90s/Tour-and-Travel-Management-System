@@ -1,3 +1,11 @@
+@php
+    $user = App\Http\Controllers\customer::adminPannel();
+    $recentBooking = App\Http\Controllers\admin_controller::recentBooking();
+    $totalSales = App\Http\Controllers\booking_controller::totalSales();
+    $totalPackage = App\Http\Controllers\admin_controller::totalPackage();
+    $totalUser = App\Http\Controllers\user_controller::totalUser();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -164,8 +172,8 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">1000</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="cardName">Total packages</div>
+                        <div class="numbers">{{ $totalPackage }}</div>
                     </div>
                     <div class="iconBox">
                         <ion-icon name="eye-outline"></ion-icon>
@@ -174,8 +182,8 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">50</div>
                         <div class="cardName">Sales</div>
+                        <div class="numbers">{{ $totalSales }}</div>
                     </div>
                     <div class="iconBox">
                         <ion-icon name="bar-chart-outline"></ion-icon>
@@ -184,8 +192,8 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">100</div>
-                        <div class="cardName">Comments</div>
+                        <div class="cardName">Total Users</div>
+                        <div class="numbers">{{ $totalUser }}</div>
                     </div>
                     <div class="iconBox">
                         <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
@@ -209,24 +217,29 @@
                             {{-- <a href="#" class="btn">View All</a> --}}
                         </div>
 
+
+
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Package Name</td>
+                                    <td>Destination</td>
                                     <td>Number of guest</td>
 
-                                    <td>Price</td>
-                                    {{-- <td>Payment</td> --}}
-                                    <td>Status</td>
+                                    <td>Arrival</td>
+                                    <td>leaving</td>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $i)
+                                @foreach ($recentBooking as $i)
                                     <tr>
                                         <td>{{ $i['destination'] }}</td>
                                         <td>{{ $i['no_guest'] }}</td>
+                                        <td>{{ $i['arrival'] }}</td>
+                                        <td>{{ $i['leaving'] }}</td>
+
                                         {{-- <td>Paid</td> --}}
-                                        <td><span class="status received">Payment Successful</span></td>
+                                        {{-- <td><span class="status received">Payment Successful</span></td> --}}
                                     </tr>
                                 @endforeach
 
@@ -266,18 +279,16 @@
                         <div class="cardHeader">
                             <h2>Recent Customers</h2>
                         </div>
-                        {{-- @php
-                            $user = App\Http\Controllers\user_controller::showPackages();
-
-                        @endphp --}}
 
 
-                        @foreach ($data as $i)
+
+                        @foreach ($user as $i)
                             <table>
                                 <tr>
 
                                     <td width="60px">
-                                        <div class="imgBox"><img src="{{ asset($i['img_path']) }}" alt=""></div>
+                                        <div class="imgBox"><img src="{{ asset($i['img_path']) }}" alt="">
+                                        </div>
                                     </td>
 
 

@@ -41,8 +41,8 @@
                                     </div>
                                     <div class="modal-footer">
                                         <input type="submit" class="btn btn-info" value="Save">
-                                        <input type="button" class="btn btn-default" data-dismiss="modal"
-                                            value="Cancel">
+                                        {{-- <input type="button" class="btn btn-default" data-dismiss="modal"
+                                            value="Cancel"> --}}
                                     </div>
                                     <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>

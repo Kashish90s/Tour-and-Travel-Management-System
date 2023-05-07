@@ -14,6 +14,9 @@ use App\Http\Controllers\contactController;
 use App\Http\Controllers\rating_controller;
 use App\Http\Controllers\admi_controller;
 use App\Http\Controllers\customer;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PDFPayment;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,105 +27,102 @@ use App\Http\Controllers\customer;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::get('/rating', function () {
-//     return view('rating');
-// });
 
 
 // Route::get('/add', function () {
-//     return view('add');
-// });
+    //     return view('add');
+    // });
 
-// Route::get('/user', function () {
-//     return view('user');
-// });
-
-
-
-// !!-------------------------redirect route--------------------------------------------------------------------!!
-
-Route::view('/signupp', 'signup')->name('signup');
-Route::view('/forget', 'forgot')->name('forgot');
-Route::view('/otp', 'verifyEmail')->name('verifyEmail');
-Route::view('/signup_emailcheck', 'signup_emailVerify')->name('signup_emailcheck');
-Route::view('/Terms-and-condition', 'Terms-and-condition')->name('Terms-and-condition');
-
-// Route::view('/rate', 'rating')->name('rate');
-Route::view('/', 'dashboard');
+    // Route::get('/user', function () {
+        //     return view('user');
+        // });
 
 
 
+        // !!-------------------------redirect route--------------------------------------------------------------------!!
 
-// Route::view('/review', 'review')->name('review');
+        Route::view('/signupp', 'signup')->name('signup');
+        Route::view('/forget', 'forgot')->name('forgot');
+        Route::view('/otp', 'verifyEmail')->name('verifyEmail');
+        Route::view('/signup_emailcheck', 'signup_emailVerify')->name('signup_emailcheck');
+        Route::view('/Terms-and-condition', 'Terms-and-condition')->name('Terms-and-condition');
+
+        // Route::view('/rate', 'rating')->name('rate');
+        Route::view('/', 'dashboard');
 
 
 
 
-
-
-// ---------------------------User Profile ----------------------------------------------------------------------
-
-Route::controller(ProfileController::class)->group(function () {
-    Route::get('/profile', 'edit');
-    Route::post('/password', 'changePassword');
-    Route::post('/account', 'update')->name('update');
-    Route::post('/delete', 'deleteAccount')->name('AccountDeletation');
-});
+        // Route::view('/review', 'review')->name('review');
 
 
 
-// ----------------------------- Login -----------------------------------------------------------------------------
-
-
-Route::controller(login_controller::class)->group(function () {
-    Route::post('/user', 'userlogin');
-    Route::get('/logout','userlogout');
-});
-
-
-//-----------------------------------
-
-Route::controller(user_controller::class)->group(function () {
-    Route::post('/userSignUp', 'userSignup')->name('addUser');
-    Route::get('/bookingPage', 'explore')->name('bookingPage');
-    Route::post('/changePP', 'uploadPicture')->name('uploadPicture');
-});
-
-//------------------------------------Forge Password ------------------------------------------------------------
-
-Route::post('/check', [laravelMail::class, 'check'])->name('check');
-Route::post('/verify', [laravelMail::class, 'verify'])->name('verify');
-Route::post('/newPassword',[laravelMail::class, 'newPassword'])->name('newPassword');
-Route::post('/resetpass', [laravelMail::class, 'resetPassword'])->name('resetpasword');
 
 
 
-Route::get('/otp', function () {
-    return view('verifyEmail');
-})->name('verifyemail');
+        // ---------------------------User Profile ----------------------------------------------------------------------
 
-//------------------------------------Sign up verfification --------------------------------------------------------
-
-Route::controller(signupVerification::class)->group(function () {
-   Route::post('/checkEmail','checkEmail')->name('checkEmail');
-   Route::post('/otpCheck','checkOtp')->name('otpCheck');
-//    Route::post('/signupp','signup')->name('signup');
-});
+        Route::controller(ProfileController::class)->group(function () {
+            Route::get('/profile', 'edit');
+            Route::post('/password', 'changePassword');
+            Route::post('/account', 'update')->name('update');
+            Route::post('/delete', 'deleteAccount')->name('AccountDeletation');
+        });
 
 
 
-Route::get('/checkOtp', function () {
-    return view('signup-otpCheck');
-})->name('signup-otpCheck');
+        // ----------------------------- Login -----------------------------------------------------------------------------
 
 
-// ------------------------booking --------------------------------------------------------------------------------------
+        Route::controller(login_controller::class)->group(function () {
+            Route::post('/user', 'userlogin');
+            Route::get('/logout','userlogout');
+        });
 
-Route::controller(booking_controller::class)->group(function(){
 
-    Route::post('/destination','destination')->name('destination');
-    ROute::get('/booking/{id}', 'showBookingPage')->name('showBookingPage');
-    // Route::get('/', 'showPackages')->name('/');
+        //-----------------------------------
+
+        Route::controller(user_controller::class)->group(function () {
+            Route::post('/userSignUp', 'userSignup')->name('addUser');
+            Route::get('/bookingPage', 'explore')->name('bookingPage');
+            Route::post('/changePP', 'uploadPicture')->name('uploadPicture');
+        });
+
+        //------------------------------------Forge Password ------------------------------------------------------------
+
+        Route::post('/check', [laravelMail::class, 'check'])->name('check');
+        Route::post('/verify', [laravelMail::class, 'verify'])->name('verify');
+        Route::post('/newPassword',[laravelMail::class, 'newPassword'])->name('newPassword');
+        Route::post('/resetpass', [laravelMail::class, 'resetPassword'])->name('resetpasword');
+
+
+
+        Route::get('/otp', function () {
+            return view('verifyEmail');
+        })->name('verifyemail');
+
+        //------------------------------------Sign up verfification --------------------------------------------------------
+
+        Route::controller(signupVerification::class)->group(function () {
+            Route::post('/checkEmail','checkEmail')->name('checkEmail');
+            Route::post('/otpCheck','checkOtp')->name('otpCheck');
+            //    Route::post('/signupp','signup')->name('signup');
+        });
+
+
+
+        Route::get('/checkOtp', function () {
+            return view('signup-otpCheck');
+        })->name('signup-otpCheck');
+
+
+        // ------------------------booking --------------------------------------------------------------------------------------
+
+        Route::controller(booking_controller::class)->group(function(){
+
+            Route::post('/destination','destination')->name('destination');
+            ROute::get('/booking/{id}', 'showBookingPage')->name('showBookingPage');
+            // Route::get('/', 'showPackages')->name('/');
 
 });
 
@@ -166,6 +166,11 @@ Route::get('/review', function () {
 
 // -----------------------------------Rating----------------------------------------
 
+
+Route::get('/rating', function () {
+    return view('rating');
+});
+
 Route::controller(rating_controller::class)->group(function(){
 
     Route::post('/rating','rating')->name('rating');
@@ -187,10 +192,6 @@ Route::controller(admin_controller::class)->group(function(){
     Route::post('/addPackages','addPackages')->name('addPackages');
     Route::get('/editPackage/{id}', 'editPackage')->name('editPackage');
     Route::get('/deletePackage/{id}', 'deletePackage')->name('deletePackage');
-    Route::post('/updatePackage/{id}', 'updatePackage')->name('updatePackage');
-    // Route::get('/admindashboard', 'recentBooking')->name('admindashboard');
-
-
 });
 
 
@@ -208,7 +209,14 @@ Route::controller(customer::class)->group(function(){
     Route::get('/deleteCustomer/{id}', 'deleteCustomer')->name('deleteCustomer');
     Route::post('/updateUser/{id}', 'updateUser')->name('updateUser');
 
-    Route::get('/admindashboard', 'adminPannel')->name('admindashboard');
-
-
 });
+
+
+
+
+
+
+// ------------------------Generate PDF--------------------------------
+
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('Payment-pdf', [PDFPayment::class, 'PaymentPDF']);

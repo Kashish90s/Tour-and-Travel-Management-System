@@ -227,6 +227,8 @@
 
     </section>
 
+
+
     <!-- packages section ends -->
     <!-- review section starts -->
     <section class="review" id="review">
@@ -259,7 +261,6 @@
                 </div>
             </div>
         @endforeach
-
         {{-- <div class="swiper-slide">
                     <div class="box">
                         <img src="images/r-1.jpg" alt="" />
@@ -331,49 +332,51 @@
 
 
     {{-- contact section  --}}
+    @if (session('userType') != 'admin')
+        <section class="contact" id="contact">
+            <h1 class="heading">
+                <span>c</span>
+                <span>o</span>
+                <span>n</span>
+                <span>t</span>
+                <span>a</span>
+                <span>c</span>
+                <span>t</span>
+            </h1>
 
-    <section class="contact" id="contact">
-        <h1 class="heading">
-            <span>c</span>
-            <span>o</span>
-            <span>n</span>
-            <span>t</span>
-            <span>a</span>
-            <span>c</span>
-            <span>t</span>
-        </h1>
+            <div class="row">
+                <div class="image">
+                    <img src="{{ asset('images/c-1.jpg') }}" alt="" />
+                </div>
 
-        <div class="row">
-            <div class="image">
-                <img src="{{ asset('images/c-1.jpg') }}" alt="" />
-            </div>
-
-            <form action="{{ route('contact') }}" method="POST">
-                @csrf
-                @error('number')
-                    <div class="text-danger">
-                        Phone number must be 10 digit...
+                <form action="{{ route('contact') }}" method="POST">
+                    @csrf
+                    @error('number')
+                        <div class="text-danger">
+                            Phone number must be 10 digit...
+                        </div>
+                    @enderror
+                    <div class="inputBox">
+                        <input type="text" placeholder="name" name="name" pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="First letter must me Capital" />
+                        <input type="email" placeholder="email" name="email"
+                            pattern="[a-zA-Z0-9]+@[a-zA-Z]+.com" title="Email should contain @ and .com" required />
                     </div>
-                @enderror
-                <div class="inputBox">
-                    <input type="text" placeholder="name" name="name" pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
-                        title="First letter must me Capital" />
-                    <input type="email" placeholder="email" name="email" pattern="[a-zA-Z0-9]+@[a-zA-Z]+.com"
-                        title="Email should contain @ and .com" required />
-                </div>
 
-                <div class="inputBox">
-                    <input type="number" placeholder="number" name="number" />
-                    <span class="error-text" style="color:#ffa500"></span>
-                    <input type="text" placeholder="subject" name="subject" />
-                </div>
+                    <div class="inputBox">
+                        <input type="number" placeholder="number" name="number" />
+                        <span class="error-text" style="color:#ffa500"></span>
+                        <input type="text" placeholder="subject" name="subject" />
+                    </div>
 
-                <textarea placeholder="message" name="message" cols="30" rows="10"></textarea>
+                    <textarea placeholder="message" name="message" cols="30" rows="10"></textarea>
 
-                <input type="submit" class="btn" value="send message" />
-            </form>
-        </div>
-    </section>
+                    <input type="submit" class="btn" value="send message" />
+                </form>
+            </div>
+        </section>
+    @endif
+
     <!-- footer section starts here -->
 
 

@@ -28,7 +28,8 @@
                 </div> --}}
 
                 <div class="inputBox">
-                    <input type="number" placeholder="Give us rating" name="rate" />
+                    <input type="number" placeholder="Give us rating" name="rate" min="1" max="7"
+                        onkeydown="return false" />
                 </div>
 
                 <textarea placeholder="Leave a message" name="message" cols="30" rows="10"></textarea>

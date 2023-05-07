@@ -64,17 +64,15 @@ class customer extends Controller
     }
 
 
-    public function adminPannel(){
+    public static function adminPannel(){
         $user =user_account::all();
-        // dd(user);
-        return view('admindash', ['data' => $user]);
 
+        return $user;
     }
-
-    public function recentBooking(){
-        $package = booking_user::all();
-        // $package = Order::all();
-        return view('admindash', ['data' => $package]);
-    }
+    // public function recentBooking(){
+    //     $package = booking_user::all();
+    //     // $package = Order::all();
+    //     return view('admindash', ['data' => $package]);
+    // }
 
 }

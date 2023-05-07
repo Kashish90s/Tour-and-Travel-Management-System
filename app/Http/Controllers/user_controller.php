@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\File;
 class user_controller extends Controller
 {
 
+
     public function uploadPicture(Request $request) {
         $file = $request->file('profile_picture');
         $filename = uniqid(). '.' .File::extension($file->getClientOriginalName());
@@ -21,6 +22,8 @@ class user_controller extends Controller
 
         return redirect('profile');
     }
+
+
 
 
     public function checkEmail($email) {
@@ -63,5 +66,11 @@ class user_controller extends Controller
             return redirect('/');;
         }
 
+    }
+
+    public static function totalUser() {
+        $package = user_account::all()->count();
+
+        return $package;
     }
 }
