@@ -19,7 +19,7 @@ class PDFController extends Controller
         $data = [
             'title' => 'Welcome to Gumphir',
             'date' => date('m/d/Y'),
-            'users' => $user
+            'users' => $users
         ];
 
         $pdf = PDF::loadView('myPDF', $data);

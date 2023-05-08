@@ -10,7 +10,6 @@ class customer extends Controller
     //
     public function viewCustomer() {
         $user =user_account::all();
-        // dd(user);
         return view('user', ['data' => $user]);
     }
 
@@ -23,7 +22,6 @@ class customer extends Controller
         $userdb->address=$request->address;
         $userdb->email=$request->email;
         $userdb->password=$request->password;
-        // dd($userdb);
         $userdb->save();
 
         return redirect('admindashboard');
@@ -69,10 +67,6 @@ class customer extends Controller
 
         return $user;
     }
-    // public function recentBooking(){
-    //     $package = booking_user::all();
-    //     // $package = Order::all();
-    //     return view('admindash', ['data' => $package]);
-    // }
+
 
 }

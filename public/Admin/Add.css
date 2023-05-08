@@ -20,11 +20,16 @@ body {
     background: var(--grey);
 }
 
+.add-packages {
+    padding-left: 30px;
+}
+
 .main {
     position: absolute;
     padding: 0 100px;
     align-items: center;
     background: var(--white);
+    width: 100%;
 }
 
 .edit {
@@ -947,7 +952,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:last-child 
     --bs-table-hover-color: #212529;
     --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
     width: 100%;
-    padding-top: 100px;
+    padding-top: 10px;
     margin-bottom: 1rem;
     color: #212529;
     vertical-align: top;

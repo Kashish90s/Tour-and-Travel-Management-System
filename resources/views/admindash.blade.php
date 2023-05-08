@@ -202,154 +202,111 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">500</div>
-                        <div class="cardName">Earnings</div>
-                    </div>
-                    <div class="iconBox">
-                        <ion-icon name="logo-bitcoin"></ion-icon>
+                        <a href="{{ route('Payment-pdf') }}">
+                            {{-- <div class="numbers">500</div> --}}
+                            <div class="cardName">Download Booking PDF
+                        </a>
                     </div>
                 </div>
-
-                <div class="details">
-                    <div class="recentOrders">
-                        <div class="cardHeader">
-                            <h2>Recent Bookings</h2>
-                            {{-- <a href="#" class="btn">View All</a> --}}
-                        </div>
-
-
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td>Destination</td>
-                                    <td>Number of guest</td>
-
-                                    <td>Arrival</td>
-                                    <td>leaving</td>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($recentBooking as $i)
-                                    <tr>
-                                        <td>{{ $i['destination'] }}</td>
-                                        <td>{{ $i['no_guest'] }}</td>
-                                        <td>{{ $i['arrival'] }}</td>
-                                        <td>{{ $i['leaving'] }}</td>
-
-                                        {{-- <td>Paid</td> --}}
-                                        {{-- <td><span class="status received">Payment Successful</span></td> --}}
-                                    </tr>
-                                @endforeach
-
-
-                                {{-- <tr>
-                                    <td>Room Booking</td>
-                                    <td>$50</td>
-                                    <td>Verifying</td>
-                                    <td><span class="status pending">Booked</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Gosaikunda Hike</td>
-                                    <td>$30</td>
-                                    <td>Cancelled</td>
-                                    <td><span class="status cancelled">Refund</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Pokhara Tour</td>
-                                    <td>$40</td>
-                                    <td>Cancelled</td>
-                                    <td><span class="status cancelled">Refund</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Manakamana Package</td>
-                                    <td>$90</td>
-                                    <td>Due</td>
-                                    <td><span class="status inProgress">In Progress</span></td>
-                                </tr> --}}
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="recentCustomers">
-                        <div class="cardHeader">
-                            <h2>Recent Customers</h2>
-                        </div>
-
-
-
-                        @foreach ($user as $i)
-                            <table>
-                                <tr>
-
-                                    <td width="60px">
-                                        <div class="imgBox"><img src="{{ asset($i['img_path']) }}" alt="">
-                                        </div>
-                                    </td>
-
-
-
-                                    <td>
-                                        <h4>{{ $i['fname'] . ' ' . $i['lname'] }} <br><span>{{ $i['address'] }}</span>
-                                        </h4>
-                                    </td>
-                                </tr>
-                            </table>
-                        @endforeach
-
-                        {{-- <tr>
-                                    <td width="60px">
-                                        <div class="imgBox"><img src="biraj.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Biraj <br><span>Kathmandu</span></h4>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBox"><img src="kashish.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Kashish <br><span>Kathmandu</span></h4>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBox"><img src="jyoti.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Jyoti <br><span>Kathmandu</span></h4>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBox"><img src="isha.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Isha <br><span>Kathmandu</span></h4>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBox"><img src="asif.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Asif <br><span>Kathmandu</span></h4>
-                                    </td>
-                                </tr> --}}
-                        {{-- </table> --}}
-                    </div>
+                <div class="iconBox">
+                    <ion-icon name="logo-bitcoin"></ion-icon>
                 </div>
             </div>
+
         </div>
+        <div class="details">
+            <div class="recentOrders">
+                <div class="cardHeader">
+                    <h2>Recent Bookings</h2>
+                    {{-- <a href="#" class="btn">View All</a> --}}
+                </div>
+
+
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Destination</td>
+                            <td>Number of guest</td>
+
+                            <td>Arrival</td>
+                            <td>leaving</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($recentBooking as $i)
+                            <tr>
+                                <td>{{ $i['destination'] }}</td>
+                                <td>{{ $i['no_guest'] }}</td>
+                                <td>{{ $i['arrival'] }}</td>
+                                <td>{{ $i['leaving'] }}</td>
+
+                                {{-- <td>Paid</td> --}}
+                                {{-- <td><span class="status received">Payment Successful</span></td> --}}
+                            </tr>
+                        @endforeach
+
+
+                        {{-- <tr>
+                                <td>Room Booking</td>
+                                <td>$50</td>
+                                <td>Verifying</td>
+                                <td><span class="status pending">Booked</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Gosaikunda Hike</td>
+                                <td>$30</td>
+                                <td>Cancelled</td>
+                                <td><span class="status cancelled">Refund</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Pokhara Tour</td>
+                                <td>$40</td>
+                                <td>Cancelled</td>
+                                <td><span class="status cancelled">Refund</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Manakamana Package</td>
+                                <td>$90</td>
+                                <td>Due</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr> --}}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="details">
+
+            <div class="recentCustomers">
+                <div class="cardHeader">
+                    <h2>Recent Customers</h2>
+                </div>
+
+                @foreach ($user as $i)
+                    <table>
+                        <tr>
+
+                            <td width="60px">
+                                <div class="imgBox"><img src="{{ asset($i['img_path']) }}" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <h4>{{ $i['fname'] . ' ' . $i['lname'] }} <br><span>{{ $i['address'] }}</span>
+                                </h4>
+                            </td>
+                        </tr>
+                    </table>
+                @endforeach
+            </div>
+
+        </div>
+    </div>
     </div>
 
     <script src="{{ asset('Admin/Admin.js') }}"></script>

@@ -17,7 +17,7 @@
     <section class="py-5 my-5">
         <div class="container">
             <h1 class="mb-5">Account Settings</h1>
-            <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+            <div class="profile-setting-abc">
                 <div class="profile-tab-nav border-right">
                     <div class="p-4">
                         <div class="p-4">

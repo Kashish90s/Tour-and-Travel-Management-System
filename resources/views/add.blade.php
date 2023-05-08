@@ -11,7 +11,7 @@
 
 <body>
     <div class="main">
-        <h1> Add Packages </h1>
+        <h1 class="add-packages"> Add Packages </h1>
         <div class="Package">
             <button class="btn" id="Btn"><span>
                     <ion-icon name="add-circle-outline"></ion-icon> Add new Package
@@ -46,8 +46,6 @@
                                         {{-- <input type="button" class="btn btn-default" data-dismiss="modal"
                                             value="Cancel"> --}}
                                     </div>
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">&times;</button>
                                 </div>
                             </form>
                         </div>

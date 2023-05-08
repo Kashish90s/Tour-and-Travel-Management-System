@@ -24,10 +24,10 @@ class EsewaController extends Controller
     public function esewaPay(Request $request) {
 
         if(session('userType') == 'admin') {
-            $msg = 'Success';
-            $msg1 = 'Payment success. Thank you for booking trip with us.';
+            $msg = 'Can not book';
+            $msg1 = 'You are login with Admin account';
 
-            return view('thankyou', compact('msg', 'msg1'));
+            return view('redirect', compact('msg', 'msg1'));
         }
 
         $pid = uniqid();

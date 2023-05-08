@@ -33,7 +33,7 @@ body {
     width: 300px;
     height: 100%;
     background: var(--orange);
-    border-left: 10px solid var(--blue);
+    /* border-left: 10px solid var(--blue); */
     transition: 0.5s;
     overflow: hidden;
 }
@@ -123,7 +123,7 @@ body {
     display: block;
     padding: 15px;
     text-align: center;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .navigation ul li:hover a::before, .navigation ul li.hovered a::before {
@@ -303,7 +303,7 @@ body {
 .topbar .link:hover p {
     font-weight: 600;
 }
-  
+
 .cardBox {
     position: relative;
     width: 100%;
@@ -356,7 +356,7 @@ body {
 .details {
     position: relative;
     width: 150%;
-    padding: 10px;
+    padding: 30px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 30px;
@@ -471,13 +471,13 @@ body {
 
 .recentCustomers {
     position: relative;
-    display: grid;
+    /* display: grid; */
     min-height: 500px;
     padding: 20px;
     background: var(--white);
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
     border-radius: 20px;
-    width: 80%;
+    /* width: 80%; */
 }
 
 .recentCustomers .imgBox {
@@ -494,7 +494,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;    
+    object-fit: cover;
 }
 
 .recentCustomers table tr:hover {
@@ -577,7 +577,7 @@ body {
         left: -100%;
         z-index: 1000;
     }
-    
+
     .navigation.active {
         width: 100%;
         left: 0;

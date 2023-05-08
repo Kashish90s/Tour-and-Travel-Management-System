@@ -17,7 +17,7 @@ class rating_controller extends Controller
     }
 
     public function rating(Request $request){
-        $userdb=new rating();
+        $userdb = new rating();
 
         $userdb->id = session('id');
         $userdb->rate = $request->rate;
