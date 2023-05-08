@@ -132,6 +132,7 @@ use App\Http\Controllers\PDFPayment;
 
 
 
+Route::view('/queries', 'queries')->name('queries');
 Route::controller(contactController::class)->group(function(){
 
     Route::post('/contact','contact')->name('contact');
@@ -193,8 +194,8 @@ Route::controller(admin_controller::class)->group(function(){
     Route::get('/editPackage/{id}', 'editPackage')->name('editPackage');
     Route::get('/deletePackage/{id}', 'deletePackage')->name('deletePackage');
     Route::post('/updatePackage/{id}', 'updatePackage')->name('updatePackage');
-});
 
+});
 
 
 
@@ -217,10 +218,9 @@ Route::controller(customer::class)->group(function(){
 
 
 
+
 // ------------------------Generate PDF--------------------------------
 
-// Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
-// Route::get('/Payment-pdf', [PDFPayment::class, 'PaymentPDF']);
 
 Route::controller(PDFController::class)->group(function(){
     Route::get('/generate-pdf', 'generatePDF')->name('generatePDF');
@@ -231,4 +231,5 @@ Route::controller(PDFPayment::class)->group(function(){
     Route::get('/Payment-pdf', 'PaymentPDF')->name('Payment-pdf');
 
 });
+
 

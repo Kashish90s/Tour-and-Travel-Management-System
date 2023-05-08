@@ -25,7 +25,6 @@
 
         <nav class="navbar">
             <a href="#home">home</a>
-            <!-- <a href="booking.html">book</a> -->
             <a href="#packages">packages</a>
             <a href="#review">review</a>
             <a href="#contact">contact</a>
@@ -39,10 +38,17 @@
             @endif
 
             @if (session()->has('userType'))
+                @if (session('userType') == 'user')
+                    <h1 class="userlogin-Class">User Login</h1>
+                @endif
+                @if (session('userType') == 'admin')
+                    <h1 class="userlogin-Class">Admin Login</h1>
+                @endif
                 <div class="dropdown">
                     <i class="fas fa-cog" id="setting-btn"></i>
                     <div id="setting-menu" class="dropdown-menu">
                         <!-- <a href="#">Profile </a> -->
+
 
                         @if (session('userType') == 'user')
                             <a href="/profile">Profile</a>
@@ -70,10 +76,6 @@
             </div>
         </div>
 
-        {{-- <form action="" class="search-bar-container">
-            <input type="search" id="search-bar" placeholder="search here..." />
-            <label for="search-bar" class="fas fa-search"></label>
-        </form> --}}
 
     </header>
     <!-- header section ends -->
@@ -93,9 +95,7 @@
             <span style="color: #ffa500" class="error-text"> </span>
             <input type="submit" value="login now" class="btn" />
 
-            {{-- <input type="checkbox" id="remember" /> --}}
 
-            {{-- <label for="remember">remember me</label> --}}
 
             <p>forgot password? <a href="{{ route('forgot') }}">click here</a></p>
 
@@ -127,55 +127,7 @@
         </div>
     </section>
 
-    <!-- home section ends here -->
 
-    <!-- booking section starts -->
-
-    <!-- <section class="book" id="book">
-      <h1 class="heading">
-        <span>b</span>
-        <span>o</span>
-        <span>o</span>
-        <span>k</span>
-        <span class="space"></span>
-        <span>n</span>
-        <span>o</span>
-        <span>w</span>
-      </h1>
-
-      <div class="row">
-        <div class="image">
-          <img src="images/book-img.jpg" alt="" />
-        </div>
-
-        <form action="">
-          <div class="inputBox">
-            <h3>where to</h3>
-            <input type="text" placeholder="place name" />
-          </div>
-
-          <div class="inputBox">
-            <h3>how many</h3>
-            <input type="number" placeholder="number of guests" />
-          </div>
-          <div class="inputBox">
-            <h3>arrivals</h3>
-            <input type="date" />
-          </div>
-
-          <div class="inputBox">
-            <h3>leaving</h3>
-            <input type="date" />
-          </div>
-
-          <input type="submit" class="btn" value="book now" />
-        </form>
-      </div>
-    </section> -->
-
-    <!-- booking section ends -->
-
-    <!-- packages section starts -->
 
 
     <section class="packages" id="packages">
@@ -333,48 +285,51 @@
 
     {{-- contact section  --}}
     @if (session('userType') != 'admin')
-        <section class="contact" id="contact">
-            <h1 class="heading">
-                <span>c</span>
-                <span>o</span>
-                <span>n</span>
-                <span>t</span>
-                <span>a</span>
-                <span>c</span>
-                <span>t</span>
-            </h1>
+        @if (session('userType') == 'user')
+            <section class="contact" id="contact">
+                <h1 class="heading">
+                    <span>c</span>
+                    <span>o</span>
+                    <span>n</span>
+                    <span>t</span>
+                    <span>a</span>
+                    <span>c</span>
+                    <span>t</span>
+                </h1>
 
-            <div class="row">
-                <div class="image">
-                    <img src="{{ asset('images/c-1.jpg') }}" alt="" />
-                </div>
+                <div class="row">
+                    <div class="image">
+                        <img src="{{ asset('images/c-1.jpg') }}" alt="" />
+                    </div>
 
-                <form action="{{ route('contact') }}" method="POST">
-                    @csrf
-                    @error('number')
-                        <div class="text-danger">
-                            Phone number must be 10 digit...
+                    <form action="{{ route('contact') }}" method="POST">
+                        @csrf
+                        @error('number')
+                            <div class="text-danger">
+                                Phone number must be 10 digit...
+                            </div>
+                        @enderror
+                        <div class="inputBox">
+                            <input type="text" placeholder="name" name="name"
+                                pattern="^[A-Za-z]+(\s[A-Za-z]+)*$" title="First letter must me Capital" />
+                            <input type="email" placeholder="email" name="email"
+                                pattern="[a-zA-Z0-9]+@[a-zA-Z]+.com" title="Email should contain @ and .com"
+                                required />
                         </div>
-                    @enderror
-                    <div class="inputBox">
-                        <input type="text" placeholder="name" name="name" pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
-                            title="First letter must me Capital" />
-                        <input type="email" placeholder="email" name="email"
-                            pattern="[a-zA-Z0-9]+@[a-zA-Z]+.com" title="Email should contain @ and .com" required />
-                    </div>
 
-                    <div class="inputBox">
-                        <input type="number" placeholder="number" name="number" />
-                        <span class="error-text" style="color:#ffa500"></span>
-                        <input type="text" placeholder="subject" name="subject" />
-                    </div>
+                        <div class="inputBox">
+                            <input type="number" placeholder="number" name="number" />
+                            <span class="error-text" style="color:#ffa500"></span>
+                            <input type="text" placeholder="subject" name="subject" />
+                        </div>
 
-                    <textarea placeholder="message" name="message" cols="30" rows="10"></textarea>
+                        <textarea placeholder="message" name="message" cols="30" rows="10"></textarea>
 
-                    <input type="submit" class="btn" value="send message" />
-                </form>
-            </div>
-        </section>
+                        <input type="submit" class="btn" value="send message" />
+                    </form>
+                </div>
+            </section>
+        @endif
     @endif
 
     <!-- footer section starts here -->
@@ -384,11 +339,11 @@
         <div class="box-container" style="padding-left: 8px">
             <div class="box">
                 <h3>about us</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sint
-                    delectus, molestias a voluptatum quas rem cumque, ab sapiente ipsum
-                    optio eos vitae fuga voluptate dolor doloremque mollitia, omnis
-                    aliquid.
+                <p class="align-ment">
+                    Welcome to <b class="coo-coo">GhumFHIR</b> We are a team of passionate travel enthusiasts who
+                    believe that
+                    exploring the world should be accessible to everyone. Our mission is to help our clients create
+                    unforgettable travel experiences, one trip at a time.
                 </p>
             </div>
 

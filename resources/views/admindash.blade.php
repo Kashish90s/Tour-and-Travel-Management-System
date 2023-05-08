@@ -66,11 +66,21 @@
                 <li>
                     <a href="{{ route('user') }}">
                         <span class='icon'>
-                            <ion-icon name="people"></ion-icon>
+                            <ion-icon name="person-add"></ion-icon>
                         </span>
                         <span class="title">Customers</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('queries') }}">
+                        <span class='icon'>
+                            <ion-icon name="people"></ion-icon>
+                        </span>
+                        <span class="title">User Contact</span>
+                    </a>
+                </li>
+
 
                 {{-- <li>
                     <a href="#}">

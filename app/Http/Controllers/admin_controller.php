@@ -85,6 +85,14 @@ class admin_controller extends Controller
     }
 
 
+    public function adminlogout(){
+        session()->forget('id');
+        session()->forget('userType');
+        session()->flush();
+        return redirect('/');
+    }
+
+
 
 
 

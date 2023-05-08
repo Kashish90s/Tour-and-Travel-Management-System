@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+.align-heading{
+    margin-left: -67px;
+}
+
 :root {
   --blue: #2a2185;
   --white: #fff;
@@ -20,16 +24,16 @@ body {
     background: var(--grey);
 }
 
-.add-packages {
+/* .add-packages {
     padding-left: 30px;
-}
+} */
 
 .main {
     position: absolute;
     padding: 0 100px;
     align-items: center;
     background: var(--white);
-    width: 100%;
+    /* width: 100%; */
 }
 
 .edit {
@@ -93,18 +97,20 @@ body {
 
 .Package .btn {
     position: relative;
-    padding: 10px 10px;
+    padding: 10px 20px;
     background: var(--blue);
     text-decoration: none;
     color: var(--white);
     border-radius: 6px;
+    margin-left: -67px;
+    margin-top: 10px;
 
 }
 
 table {
     border: 2px solid var(--black1);
     border-collapse: collapse;
-    width: 100%;
+    width: 96%;
     margin: 30px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
     text-align: justify;
@@ -952,7 +958,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:last-child 
     --bs-table-hover-color: #212529;
     --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
     width: 100%;
-    padding-top: 10px;
+    padding-top: 100px;
     margin-bottom: 1rem;
     color: #212529;
     vertical-align: top;

@@ -22,4 +22,13 @@ class contactController extends Controller
 
         return redirect('/');
     }
+
+
+
+    public static function feedBack(){
+        $user =contact::all();
+
+        return $user;
+    }
+
 }

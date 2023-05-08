@@ -90,18 +90,19 @@ body {
 
 .User .btn {
     position: relative;
-    padding: 10px 10px;
+    padding: 10px 19px;
     background: var(--blue);
     text-decoration: none;
     color: var(--white);
     border-radius: 6px;
+    margin-top: 10px;
 
 }
 
 table {
     border: 2px solid var(--black1);
     border-collapse: collapse;
-    width: 100%;
+    width: 96%;
     margin: 30px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
     text-align: justify;
