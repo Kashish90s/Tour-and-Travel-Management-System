@@ -7,13 +7,40 @@
   box-sizing: border-box;
 }
 
+/* .recent{
+    margin-top: 1px;
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
+    border-radius: 20px;
+
+    width: 300px;
+  height: 100px;
+  padding: 50px;
+
+} */
+
+/* .cardHO{
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 4fr);
+    grid-gap: 30px;
+}
+ */
+
+
 :root {
-  --blue: #2a2185;
+  --blue: #ffa500;
   --white: #fff;
   --gray: #f5f5f5;
   --black1: #222;
   --black2: #999;
-  --orange: #e1751e;
+  --orange: #ffa500;
 }
 
 body {
@@ -33,7 +60,7 @@ body {
     width: 300px;
     height: 100%;
     background: var(--orange);
-    /* border-left: 10px solid var(--blue); */
+    border-left: 10px solid var(--blue);
     transition: 0.5s;
     overflow: hidden;
 }
@@ -366,7 +393,7 @@ body {
 .details .recentOrders {
     position: relative;
     display: grid;
-    min-height: 500px;
+    /* min-height: 500px; */
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
@@ -471,13 +498,16 @@ body {
 
 .recentCustomers {
     position: relative;
-    /* display: grid; */
-    min-height: 500px;
+    display: grid;
+    min-height: 230px;
     padding: 20px;
     background: var(--white);
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.88);
     border-radius: 20px;
-    /* width: 80%; */
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 131px;
+
 }
 
 .recentCustomers .imgBox {

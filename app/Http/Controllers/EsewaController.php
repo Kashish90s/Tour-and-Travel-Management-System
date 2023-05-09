@@ -88,7 +88,7 @@ class EsewaController extends Controller
             session()->put('email', $user->email);
             $userr['to'] = $email = session()->get('email');
 
-            Mail::send('esewaPayment', [], function($messages) use ($userr){
+            Mail::send('esewaPayment', ['amount' => $amount], function($messages) use ($userr){
                 $messages->to($userr['to']);
                 $messages->subject('Booking Confirmation');
             });

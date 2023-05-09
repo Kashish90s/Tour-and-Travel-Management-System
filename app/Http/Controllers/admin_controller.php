@@ -10,6 +10,11 @@ use App\Models\Order;
 use Illuminate\Support\Facades\File;
 class admin_controller extends Controller
 {
+    public function redirectToHomepage(){
+
+        return redirect('/');
+    }
+
     public static function totalPackage() {
         $package = package::all()->count();
 
@@ -85,12 +90,8 @@ class admin_controller extends Controller
     }
 
 
-    public function adminlogout(){
-        session()->forget('id');
-        session()->forget('userType');
-        session()->flush();
-        return redirect('/');
-    }
+
+
 
 
 

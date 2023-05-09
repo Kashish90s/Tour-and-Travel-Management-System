@@ -29,9 +29,7 @@ use App\Http\Controllers\PDFPayment;
 */
 
 
-// Route::get('/add', function () {
-    //     return view('add');
-    // });
+
 
     // Route::get('/user', function () {
         //     return view('user');
@@ -194,8 +192,11 @@ Route::controller(admin_controller::class)->group(function(){
     Route::get('/editPackage/{id}', 'editPackage')->name('editPackage');
     Route::get('/deletePackage/{id}', 'deletePackage')->name('deletePackage');
     Route::post('/updatePackage/{id}', 'updatePackage')->name('updatePackage');
+    // Route::get('/', 'admin_controller@redirectToHomepage');
 
 });
+
+Route::get('/home', [admin_controller::class, 'redirectToHomepage'])->name('home');
 
 
 
@@ -231,5 +232,7 @@ Route::controller(PDFPayment::class)->group(function(){
     Route::get('/Payment-pdf', 'PaymentPDF')->name('Payment-pdf');
 
 });
+
+
 
 

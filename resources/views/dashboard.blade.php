@@ -54,7 +54,7 @@
                             <a href="/profile">Profile</a>
                         @endif
 
-                        <a href="#">Notification </a>
+                        {{-- <a href="#">Notification </a> --}}
 
                         @if (session('userType') == 'admin')
                             <a href="{{ route('admindashboard') }}">Admin Dashboard </a>

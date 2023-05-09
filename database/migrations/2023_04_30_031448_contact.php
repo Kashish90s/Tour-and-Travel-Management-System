@@ -24,7 +24,7 @@ return new class extends Migration
             $table->String('name');
             $table->String('email');
             $table->biginteger('number')->nullable();
-            $table->String('subject');
+            $table->text('subject');
             $table->text('message')->nullable();
 
         });

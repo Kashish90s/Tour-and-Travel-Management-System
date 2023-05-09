@@ -28,7 +28,7 @@
                 </div> --}}
 
                 <div class="inputBox">
-                    <input type="number" placeholder="Give us rating" name="rate" min="1" max="7"
+                    <input type="number" placeholder="Give us rating" name="rate" min="1" max="5"
                         onkeydown="return false" />
                 </div>
 

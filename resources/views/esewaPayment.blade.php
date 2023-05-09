@@ -26,10 +26,10 @@
 
 
     <p>Dear Customer</p>
-    {{-- <p>Hi there,</p> --}}
-    <p>Your payment is Sucessful <br>
 
-        Thank you for booking a package with GhumPhir</p>
+    <p>Your payment is Sucessful <br>Amount Rs {{ $amount }} withdrawl from your account <br>
+
+        Thank you for booking a package with <b><span style="color: #ffa500">Ghum</span><span>FHIR</span></b> </p>
 
     <p>Best regards,<br>
         <b> Yuvraj Tharu <br>

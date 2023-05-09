@@ -11,6 +11,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
     <link rel="stylesheet" type="text/css" href="profile-settings.css" />
+    <style>
+        .tab-content {
+            >.tab-pane {
+                display: none;
+                margin-left: -40px;
+            }
+
+            >.active {
+                display: block;
+                margin-left: -40px;
+            }
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #ffa500;
+            border-color: #ffa500;
+        }
+
+        element.style {}
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #fff;
+            background-color: #ffa500;
+        }
+    </style>
 </head>
 
 <body>

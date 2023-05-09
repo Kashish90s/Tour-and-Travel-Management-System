@@ -81,6 +81,17 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{ route('home') }}">
+                        <span class='icon'>
+                            <ion-icon name="business"></ion-icon>
+                        </span>
+                        <span class="title">Home Page</span>
+                    </a>
+                </li>
+
+
+
 
                 {{-- <li>
                     <a href="#}">
@@ -183,43 +194,40 @@
                 <div class="card">
                     <div>
                         <div class="cardName">Total packages</div>
-                        <div class="numbers">{{ $totalPackage }}</div>
+                        <div class="numbers" style="text-align: center">{{ $totalPackage }}</div>
                     </div>
                     <div class="iconBox">
-                        <ion-icon name="eye-outline"></ion-icon>
+                        {{-- <ion-icon name="eye-outline"></ion-icon> --}}
                     </div>
                 </div>
 
                 <div class="card">
                     <div>
                         <div class="cardName">Sales</div>
-                        <div class="numbers">{{ $totalSales }}</div>
+                        <div class="numbers" style="text-align: center">{{ $totalSales }}</div>
                     </div>
                     <div class="iconBox">
-                        <ion-icon name="bar-chart-outline"></ion-icon>
+                        {{-- <ion-icon name="bar-chart-outline"></ion-icon> --}}
                     </div>
                 </div>
 
                 <div class="card">
                     <div>
                         <div class="cardName">Total Users</div>
-                        <div class="numbers">{{ $totalUser }}</div>
+                        <div class="numbers" style="text-align: center">{{ $totalUser }}</div>
                     </div>
                     <div class="iconBox">
-                        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                        {{-- <ion-icon name="chatbubble-ellipses-outline"></ion-icon> --}}
                     </div>
                 </div>
 
-                <div class="card">
+                {{-- <div class="card">
                     <div>
-                        <a href="{{ route('Payment-pdf') }}">
-                            {{-- <div class="numbers">500</div> --}}
-                            <div class="cardName">Download Booking PDF
-                        </a>
+
                     </div>
-                </div>
+                </div> --}}
                 <div class="iconBox">
-                    <ion-icon name="logo-bitcoin"></ion-icon>
+                    {{-- <ion-icon name="logo-bitcoin"></ion-icon> --}}
                 </div>
             </div>
 
@@ -227,6 +235,10 @@
         <div class="details">
             <div class="recentOrders">
                 <div class="cardHeader">
+                    <a href="{{ route('Payment-pdf') }}">
+
+                        <p class="cardName">Download Payment PDF</p>
+                    </a>
                     <h2>Recent Bookings</h2>
                     {{-- <a href="#" class="btn">View All</a> --}}
                 </div>

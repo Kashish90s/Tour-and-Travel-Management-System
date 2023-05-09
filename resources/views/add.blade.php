@@ -5,8 +5,55 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('Admin/Add.css') }}">
     <title>Add Packages</title>
+    {{-- <link rel="stylesheet" href="{{ asset('Admin/Add.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/styleOF.css') }}">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 1em;
+            margin-left: -187px;
+            margin-right: 18px;
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 0.5em;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+    </style>
+
+
 </head>
 
 <body>
@@ -35,7 +82,7 @@
                                                     class="form-control" required></label>
                                             <label>Ratings<input id="rating" type="text" name="rating"
                                                     class="form-control" required></label>
-                                            <label>Discounts<input id="discount" type="text" name="discount"
+                                            <label>Discounts %<input id="discount" type="text" name="discount"
                                                     class="form-control" required></label>
                                             <label for="image-upload">Upload Image:</label>
                                             <input type="file" id="image-upload" name="picture_link"><br><br>
@@ -43,10 +90,10 @@
                                     </div>
                                     <div class="modal-footer">
                                         <input type="submit" class="btn btn-info" value="Save">
-                                        {{-- <input type="button" class="btn btn-default" data-dismiss="modal"
-                                            value="Cancel"> --}}
+                                        <input type="button" id="cancel-btn" class="btn-cancel" data-dismiss="modal"
+                                            value="Cancel">
                                         <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">&times;</button>
+                                            aria-hidden="true"></button>
 
                                     </div>
                             </form>
@@ -65,8 +112,7 @@
                             <td>Pricing</td>
                             <td>Description</td>
                             <td>Ratings</td>
-                            <td>Discounts</td>
-                            <!-- <td>Add image</td> -->
+                            <td>Discounts %</td>
                             <td>Action</td>
                         </tr>
                     </thead>
@@ -81,7 +127,7 @@
                                 <td> {{ $d['description'] }} </td>
                                 <td> {{ $d['ratings'] }} </td>
                                 <td> {{ $d['discount'] }} </td>
-                                {{-- <td> {{ $data['package_name'] }} </td> --}}
+
 
                                 <td>
                                     <a class="edit edit_btn" href="{{ route('editPackage', ['id' => $d['id']]) }}">
@@ -98,6 +144,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById("cancel-btn").addEventListener("click", function() {
+            window.location.href = document.referrer;
+        });
+    </script>
+
 
     <script src="{{ asset('Admin/Add.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>

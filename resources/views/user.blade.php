@@ -5,13 +5,57 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('Admin/User.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('Admin/User.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/styleOF.css') }}">
     <title>Add User</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 1em;
+            margin-left: -187px;
+            margin-right: 18px;
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 0.5em;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+    </style>
 </head>
 
 <body>
     <div class="main">
-        <h1> Add User </h1>
+        <h1 class="align-heading"> Add User </h1>
         <div class="User">
             <button class="btn" id="Btn"><span>
                     <ion-icon name="add-circle-outline"></ion-icon> Add new User
@@ -41,11 +85,11 @@
                                     </div>
                                     <div class="modal-footer">
                                         <input type="submit" class="btn btn-info" value="Save">
-                                        {{-- <input type="button" class="btn btn-default" data-dismiss="modal"
-                                            value="Cancel"> --}}
+                                        <input type="button" id="cancelBtn" class="btn-cancel" data-dismiss="modal"
+                                            value="Cancel">
                                     </div>
                                     <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">&times;</button>
+                                        aria-hidden="true"></button>
                                 </div>
                             </form>
                         </div>
@@ -64,9 +108,7 @@
                             <td>Address</td>
                             <td>Email</td>
                             <td>Password</td>
-                            {{-- <td>Otp</td> --}}
-                            <!-- <td>img_path</td> -->
-                            {{-- <td>Action</td> --}}
+
                         </tr>
                     </thead>
 
@@ -80,15 +122,9 @@
                                 <td>{{ $i['Contact_Number'] }}</td>
                                 <td>{{ $i['address'] }}</td>
                                 <td>{{ $i['email'] }}</td>
-                                {{-- <td>2321312</td> --}}
-                                {{-- <td>102323</td> --}}
-                                <!-- <td>
-                                <form action="">
-                                    <input type="file" id="myFile" name="filename">
-                                </form>
-                            </td> -->
+
                                 <td>
-                                    <a class="edit" href="{{ route('editUser', ['id' => $i['id']]) }}">
+                                    <a class="edit edit_btn" href="{{ route('editUser', ['id' => $i['id']]) }}">
                                         <ion-icon name="cloud-upload-outline"></ion-icon>Edit
                                     </a>
                                     <a class="delete" href="{{ route('deleteCustomer', ['id' => $i['id']]) }}">
@@ -117,6 +153,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById("cancelBtn").addEventListener("click", function() {
+            window.history.back();
+        });
+    </script>
+
 
     <script src="{{ asset('Admin/Add.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>

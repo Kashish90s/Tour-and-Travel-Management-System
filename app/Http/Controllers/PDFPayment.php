@@ -14,7 +14,7 @@ class PDFPayment extends Controller
         $users = Order::get();
 
         $data = [
-            'title' => 'Welcome to Gumphir',
+            'title' => 'Welcome to ',
             'date' => date('m/d/Y'),
             'users' => $users
         ];

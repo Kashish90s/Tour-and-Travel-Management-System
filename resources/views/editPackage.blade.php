@@ -44,7 +44,7 @@
             <input id="rating" type="text" name="rating" class="form-control" value="{{ $data['ratings'] }}"
                 required>
 
-            <label>Discounts</label>
+            <label>Discounts %</label>
             <input id="discount" type="text" name="discount" class="form-control" value="{{ $data['discount'] }}"
                 required>
 
