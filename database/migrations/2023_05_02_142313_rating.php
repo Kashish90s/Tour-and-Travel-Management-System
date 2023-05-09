@@ -21,8 +21,6 @@ return new class extends Migration
         Schema::create('rating', function (Blueprint $table) {
 
             $table->id();
-            // $table->String('fname');
-            // $table->String('lname');
             $table->String('rate')->nullable();
             $table->text('message')->nullable();
 

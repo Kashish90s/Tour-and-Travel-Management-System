@@ -318,7 +318,9 @@
                         </div>
 
                         <div class="inputBox">
-                            <input type="number" placeholder="number" name="number" />
+                            <input type="number" placeholder="number" name="number"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                maxlength="10" />
                             <span class="error-text" style="color:#ffa500"></span>
                             <input type="text" placeholder="subject" name="subject" />
                         </div>
@@ -356,11 +358,14 @@
                 <a id="contact" href="#contact">contact</a>
             </div>
 
-            <div class="box">
-                <h3>Rate us</h3>
-                <a href="{{ route('rating') }}">Review</a>
 
-            </div>
+            @if (session('userType') == 'user')
+                <div class="box">
+                    <h3>Rate us</h3>
+                    <a href="{{ route('rating') }}">Review</a>
+
+                </div>
+            @endif
 
             <div class="box">
                 <h3>Term and Condition</h3>
@@ -371,7 +376,6 @@
         </div>
     </div>
 
-    <!-- custom js link file -->
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>

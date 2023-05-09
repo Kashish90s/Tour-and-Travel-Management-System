@@ -14,6 +14,8 @@ class rating_controller extends Controller
                     ->select('user_accounts.*', 'rating.*')->get();
 
         return json_decode($rate, true);
+
+
     }
 
     public function rating(Request $request){
