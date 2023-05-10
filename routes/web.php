@@ -192,7 +192,7 @@ Route::controller(admin_controller::class)->group(function(){
     Route::get('/editPackage/{id}', 'editPackage')->name('editPackage');
     Route::get('/deletePackage/{id}', 'deletePackage')->name('deletePackage');
     Route::post('/updatePackage/{id}', 'updatePackage')->name('updatePackage');
-    // Route::get('/', 'admin_controller@redirectToHomepage');
+
 
 });
 

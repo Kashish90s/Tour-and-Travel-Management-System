@@ -33,7 +33,7 @@
 
     <p>Best regards,<br>
         <b> Yuvraj Tharu <br>
-            GhumPhir Admin </b>
+            GhumFHIR Admin </b>
     </p>
 
 

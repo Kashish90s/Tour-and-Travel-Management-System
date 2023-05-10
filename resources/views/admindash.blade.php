@@ -125,11 +125,11 @@
 
     <div class="main">
         <div class="topbar">
-            <div class="toggle">
-                <span class="menu-outline">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </span>
-            </div>
+            {{-- <div class="toggle"> --}}
+            {{-- <span class="menu-outline"> --}}
+            {{-- <ion-icon name="menu-outline"></ion-icon> --}}
+            {{-- </span> --}}
+            {{-- </div> --}}
 
             {{-- <div class="search">
                 <label>
@@ -203,7 +203,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="cardName">Sales</div>
+                        <div class="cardName">Total Sales</div>
                         <div class="numbers" style="text-align: center">{{ $totalSales }}</div>
                     </div>
                     <div class="iconBox">
