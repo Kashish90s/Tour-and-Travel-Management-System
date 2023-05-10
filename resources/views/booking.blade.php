@@ -69,6 +69,18 @@
     document.getElementById("date-input").setAttribute("min", today);
     const nowday = new Date().toISOString().split('T')[0];
     document.getElementById("date-in").setAttribute("min", today);
+    // const maxDate = new Date();
+    // maxDate.setDate(maxDate.getDate() + 7);
+    // const maxDateFormatted = maxDate.toISOString().split('T')[0];
+
+    // const dateInput = document.getElementById("date-in");
+    // const dateInputArrival = document.getElementById("date-input");
+
+    // dateInput.setAttribute("min", today);
+    // dateInput.setAttribute("max", maxDateFormatted);
+
+    // dateInputArrival.setAttribute("min", today);
+    // dateInputArrival.setAttribute("max", maxDateFormatted);
 
     function showMsg() {
         var blur = document.getElementById('blur');
@@ -78,6 +90,8 @@
         container.classList.toggle('active');
     }
 </script>
+
+
 
 </html>
 

@@ -318,12 +318,19 @@
                         </div>
 
                         <div class="inputBox">
-                            <input type="number" placeholder="number" name="number"
-                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            <input id="number-input" type="number" placeholder="number" name="number"
+                                pattern="\d{10}" required minlength="10" maxlength="10"
+                                title="number must be 10 digits"
+                                oninput="javascript: if (this.value.length != this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                 maxlength="10" />
+
+
                             <span class="error-text" style="color:#ffa500"></span>
                             <input type="text" placeholder="subject" name="subject" />
                         </div>
+                        <p id="error-message" style="color: #ffa500; display: none;">Please enter a 10-digit
+                            number.
+                        </p>
 
                         <textarea placeholder="message" name="message" cols="30" rows="10"></textarea>
 
@@ -375,6 +382,20 @@
 
         </div>
     </div>
+
+    <script>
+        const numberInput = document.getElementById('number-input');
+        const errorMessage = document.getElementById('error-message');
+
+        numberInput.addEventListener('input', function() {
+            const value = numberInput.value.trim();
+            if (value.length !== 10) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+    </script>
 
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
