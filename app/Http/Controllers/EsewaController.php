@@ -45,6 +45,8 @@ class EsewaController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
+
+
         // set success and failure callback urls
         $successUrl = url("/success");
         $failureUrl = url('/failure');
